@@ -1,23 +1,23 @@
 import Header from "../header"
-import Head from "next/head"
 import * as S from "./layout.styled"
+import { useContext } from "react"
+import { Context } from "../../context/context"
+import Footer from "../footer"
+import SectionName from "../sectionName"
+import Socials from "../socials"
 
-export default function Layout({ children, home }) {
+const Layout = ({ children }) => {
+  const { sectionName, sectionActive } = useContext(Context)
+
   return (
-    <>
-      <Head>
-        <title>Ozan Guner | Front End Developer</title>
-        <meta
-          name="description"
-          content="Highly passionate and creative Front End Developer, based in London. Specialising in React, Gatsby and Next.js"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <S.Container>
-        <Header />
-        <main>{children}</main>
-      </S.Container>
-    </>
+    <S.Container>
+      <Header />
+      <SectionName name={sectionName} active={sectionActive} />
+      <Socials />
+      <main>{children}</main>
+      <Footer />
+    </S.Container>
   )
 }
+
+export default Layout

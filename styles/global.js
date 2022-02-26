@@ -14,7 +14,14 @@ export const GlobalStyles = createGlobalStyle`
   }
   html,
   body {
-    /* height: 100%; */
+    font-family: 'Outfit', sans-serif;
+    background: ${({ theme }) => theme.background};
+    color: ${({ theme }) => theme.text};
+
+  }
+  /* Typography */
+  p {
+    line-height: 1.4;
   }
   a {
     text-decoration: none;
