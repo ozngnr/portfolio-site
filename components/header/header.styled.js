@@ -6,7 +6,8 @@ export const Header = styled.header`
   width: 90%;
   margin: auto;
   max-width: 1440px;
-  height: 4em;
+  padding: 1.5em 0;
+  height: 5em;
   background: ${({ theme }) => theme.background};
   z-index: 9999;
 `

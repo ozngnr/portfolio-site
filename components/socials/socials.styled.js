@@ -1,18 +1,34 @@
 import styled from "styled-components"
 
+export const EmailLink = styled.a`
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  color: ${({ theme }) => theme.text};
+  margin-top: 3em;
+
+  &:before,
+  &:after {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 100px;
+    margin: 1em 0;
+    margin-right: 5px;
+    background-color: ${({ theme }) => theme.text};
+  }
+`
 export const ExternalLink = styled.a`
+  display: block;
   font-size: 1.5rem;
   color: ${({ theme }) => theme.textTransparent};
 `
 
 export const Container = styled.div`
-  position: fixed;
-  right: 1em;
-  top: 50%;
-  transform: translateY(-50%);
   display: none;
-  flex-direction: column;
-
+  position: fixed;
+  right: 2em;
+  bottom: 0%;
+  /* transform: translateY(50%); */
   svg {
     margin-bottom: 0.5em;
     cursor: pointer;
@@ -25,5 +41,7 @@ export const Container = styled.div`
 
   @media (min-width: 900px) {
     display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 `

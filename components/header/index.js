@@ -6,17 +6,28 @@ import { Context } from "../../context/context"
 
 const Header = () => {
   const { navOpen, setNavOpen, isLoading } = useContext(Context)
-  const [headerHeight, setHeaderHeight] = useState("")
+  const [headerPos, setHeaderPos] = useState({ height: "", left: "" })
   const headerRef = useRef()
 
+  //get header position for logo animation
   useEffect(() => {
-    console.log(headerRef)
-    setHeaderHeight(headerRef.current.clientHeight)
+    const handleResize = () => {
+      const { clientHeight, offsetLeft } = headerRef.current
+
+      setHeaderPos({ height: clientHeight, left: offsetLeft })
+    }
+
+    handleResize()
+    window.addEventListener("resize", handleResize)
+
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    }
   }, [])
 
   return (
     <S.Header ref={headerRef}>
-      <Logo isLoading={isLoading} headerHeight={headerHeight}>
+      <Logo isLoading={isLoading} headerPos={headerPos}>
         ozanguner
       </Logo>
 

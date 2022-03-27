@@ -1,4 +1,4 @@
-import { Container, ExternalLink } from "./socials.styled"
+import { Container, ExternalLink, EmailLink } from "./socials.styled"
 import { FaLinkedin, FaGithub, FaCodepen } from "react-icons/fa"
 
 const Socials = () => {
@@ -27,6 +27,10 @@ const Socials = () => {
       >
         <FaCodepen />
       </ExternalLink>
+
+      <EmailLink href="mailto:ozngnr@gmail.com">
+        hello@ozanguner.co.uk
+      </EmailLink>
     </Container>
   )
 }

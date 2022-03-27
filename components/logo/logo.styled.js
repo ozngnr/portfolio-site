@@ -3,7 +3,7 @@ import styled, { css } from "styled-components"
 export const Dot = styled.div`
   position: absolute;
   display: inline-block;
-  top: 1.85em;
+  top: 2.35em;
   width: 0.125em;
   height: 0.125em;
   background: ${({ theme }) => theme.text};
@@ -21,12 +21,13 @@ export const Wrapper = styled.div`
   position: relative;
   display: inline-block;
   font-size: 1.125rem;
+  text-align: center;
   top: 0%;
   left: 0%;
-  padding: 1em 0;
+  min-width: 100px;
+  padding: 1.5em 0;
   transform: translate(0, 0);
   transition: all 0.5s linear 2s;
-  /* border: 1px solid green; */
 
   ${({ isLoading }) =>
     isLoading &&
@@ -51,22 +52,20 @@ export const Wrapper = styled.div`
   }
 `
 export const Container = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  height: ${({ headerHeight }) => headerHeight + "px"};
-  /* border: 1px solid yellow; */
-  background: "none";
-  transition: all 0.5s linear 2s, height 0s 3s;
+  width: 0;
+  height: ${({ headerPos }) => headerPos.height + "px"};
+  padding: 0 ${({ headerPos }) => headerPos.left + "px"};
+  transition: background 0.5s linear 2s, width 0s 3s, height 0s 3s;
   z-index: 10000;
 
   ${({ isLoading }) =>
     isLoading &&
     css`
-      left: calc((100vw - 100%) * -0.5);
-      right: calc((100vw - 100%) * -0.5);
-      height: 100vh;
+      width: 100%;
+      height: 100%;
       background: ${({ theme }) => theme.background};
     `}
 `
