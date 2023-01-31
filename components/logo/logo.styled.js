@@ -27,7 +27,7 @@ export const Wrapper = styled.div`
   min-width: 100px;
   padding: 1.5em 0;
   transform: translate(0, 0);
-  transition: all 0.5s linear 2s;
+  /* transition: all 0.5s linear 2s; */
 
   /* ${({ isLoading }) =>
     isLoading &&
