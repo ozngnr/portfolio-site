@@ -23,7 +23,14 @@ function ContextProvider({ children }) {
 
   //
   useEffect(() => {
-    setIsLoading(false);
+    const handleLoad = () => {
+      setIsLoading(false)
+    }
+    window.addEventListener('load', handleLoad)
+
+    return () => {
+      return window.removeEventListener('load', handleLoad)
+    }
   }, []);
 
   return (
