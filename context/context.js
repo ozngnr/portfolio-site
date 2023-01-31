@@ -23,14 +23,13 @@ function ContextProvider({ children }) {
 
   //
   useEffect(() => {
-    const handleLoad = () => {
+    const logoTimer = setTimeout(() => {
       setIsLoading(false)
-    }
-    window.addEventListener('load', handleLoad)
+    }, 2000);
 
     return () => {
-      return window.removeEventListener('load', handleLoad)
-    }
+      clearTimeout(logoTimer);
+    };
   }, []);
 
   return (
