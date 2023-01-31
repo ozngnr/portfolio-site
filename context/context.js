@@ -6,7 +6,7 @@ function ContextProvider({ children }) {
   const [section, setSection] = useState('');
   const [sectionName, setSectionName] = useState('');
   const [sectionInView, setSectionInView] = useState(true);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   //Rename and animate section title
   useEffect(() => {
@@ -31,7 +31,7 @@ function ContextProvider({ children }) {
       clearTimeout(logoTimer);
     };
   }, [setIsLoading]);
-  
+
   return (
     <Context.Provider
       value={{
