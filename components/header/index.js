@@ -31,7 +31,6 @@ const Header = () => {
       <Logo isLoading={isLoading} headerPos={headerPos}>
         ozanguner
       </Logo>
-
       <S.NavToggle
         aria-label="Navigation Button"
         onClick={() => setNavOpen(!navOpen)}
