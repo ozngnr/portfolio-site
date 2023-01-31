@@ -1,29 +1,30 @@
-import * as S from "./header.styled"
-import Link from "next/link"
-import Logo from "../logo"
-import { useContext, useEffect, useRef, useState } from "react"
-import { Context } from "../../context/context"
+import * as S from './header.styled';
+import Link from 'next/link';
+import Logo from '../logo';
+import { useContext, useEffect, useRef, useState } from 'react';
+import { Context } from '../../context/context';
 
 const Header = () => {
-  const { navOpen, setNavOpen, isLoading } = useContext(Context)
-  const [headerPos, setHeaderPos] = useState({ height: "", left: "" })
-  const headerRef = useRef()
+  const { navOpen, setNavOpen, isLoading } = useContext(Context);
+  const [headerPos, setHeaderPos] = useState({ height: '', left: '' });
+  const headerRef = useRef();
 
   //get header position for logo animation
   useEffect(() => {
     const handleResize = () => {
-      const { clientHeight, offsetLeft } = headerRef.current
+      const { clientHeight, offsetLeft } = headerRef.current;
 
-      setHeaderPos({ height: clientHeight, left: offsetLeft })
-    }
+      setHeaderPos({ height: clientHeight, left: offsetLeft });
+    };
 
-    handleResize()
-    window.addEventListener("resize", handleResize)
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize)
-    }
-  }, [])
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <S.Header ref={headerRef}>
@@ -58,7 +59,7 @@ const Header = () => {
         </S.NavList>
       </S.Nav>
     </S.Header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

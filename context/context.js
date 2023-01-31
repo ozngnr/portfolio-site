@@ -1,30 +1,30 @@
-import React, { useState, createContext, useEffect } from "react"
-const Context = createContext()
+import React, { useState, createContext, useEffect } from 'react';
+const Context = createContext();
 
 function ContextProvider({ children }) {
-  const [navOpen, setNavOpen] = useState(false)
-  const [section, setSection] = useState("")
-  const [sectionName, setSectionName] = useState("")
-  const [sectionActive, setSectionActive] = useState(true)
-  const [isLoading, setIsLoading] = useState(true)
+  const [navOpen, setNavOpen] = useState(false);
+  const [section, setSection] = useState('');
+  const [sectionName, setSectionName] = useState('');
+  const [sectionInView, setSectionInView] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   //Rename and animate section title
   useEffect(() => {
-    setSectionActive(false)
+    setSectionInView(false);
     const timer = setTimeout(() => {
-      setSectionName(section)
-      setSectionActive(true)
-    }, 500)
+      setSectionName(section);
+      setSectionInView(true);
+    }, 500);
 
     return () => {
-      clearTimeout(timer)
-    }
-  }, [section])
+      clearTimeout(timer);
+    };
+  }, [section]);
 
   //
   useEffect(() => {
-    setIsLoading(false)
-  }, [])
+    setIsLoading(false);
+  }, []);
 
   return (
     <Context.Provider
@@ -34,14 +34,14 @@ function ContextProvider({ children }) {
         section,
         setSection,
         sectionName,
-        sectionActive,
-        setSectionActive,
+        sectionInView,
+        setSectionInView,
         isLoading,
       }}
     >
       {children}
     </Context.Provider>
-  )
+  );
 }
 
-export { Context, ContextProvider }
+export { Context, ContextProvider };

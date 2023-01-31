@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components"
+import styled, { keyframes } from 'styled-components';
 
 export const SectionLink = styled.a`
   display: inline-block;
@@ -7,20 +7,19 @@ export const SectionLink = styled.a`
   border: 1px solid white;
   border-radius: 0.5em;
   margin-bottom: 2em;
-`
+`;
 export const Text = styled.p`
   font-weight: 200;
   font-size: 1.125rem;
   margin: 2em 0 4em;
-`
+`;
 export const Title = styled.h1`
   font-size: 4rem;
   font-weight: 600;
   max-width: 400px;
-`
+`;
 
 export const Body = styled.div`
-  text-transform: capitalize;
   text-align: center;
   padding: 0 1em;
   z-index: 1;
@@ -29,7 +28,7 @@ export const Body = styled.div`
     margin-right: 3em;
     text-align: left;
   }
-`
+`;
 export const Overlay = styled.div`
   position: absolute;
   top: 0;
@@ -40,7 +39,7 @@ export const Overlay = styled.div`
     transparent 50%,
     ${({ theme }) => theme.background} 100%
   );
-`
+`;
 
 export const ImgWrapper = styled.div`
   position: relative;
@@ -59,7 +58,7 @@ export const ImgWrapper = styled.div`
     min-height: 500px;
     border-radius: 50%;
   }
-`
+`;
 
 export const Content = styled.div`
   display: flex;
@@ -72,9 +71,9 @@ export const Content = styled.div`
     flex-direction: row;
     justify-content: center;
   }
-`
+`;
 export const Section = styled.section`
   width: 100%;
   max-width: 1200px;
   margin: auto;
-`
+`;

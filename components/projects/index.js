@@ -1,10 +1,10 @@
-import * as S from "./projects.styled"
-import StackIcon, { icons } from "../../assets/stackIcons"
-import { FiExternalLink } from "react-icons/fi"
-import { useSectionInView } from "../../hooks/useSectionInView"
+import * as S from './projects.styled';
+import StackIcon, { icons } from '../../assets/stackIcons';
+import { FiExternalLink } from 'react-icons/fi';
+import { useSectionInView } from '../../hooks/useSectionInView';
 
 const Projects = ({ data }) => {
-  const [sectionREf] = useSectionInView()
+  const [sectionREf] = useSectionInView();
 
   return (
     <S.Section id="projects" name="projects." ref={sectionREf}>
@@ -28,13 +28,15 @@ const Projects = ({ data }) => {
                 >
                   code <FiExternalLink />
                 </S.Link>
-                <S.Link
-                  href={project.demo}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  demo <FiExternalLink />
-                </S.Link>
+                {project.demo && (
+                  <S.Link
+                    href={project.demo}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    demo <FiExternalLink />
+                  </S.Link>
+                )}
               </S.Links>
               <S.Stack>
                 {project.stack.map((lang, i) => (
@@ -46,7 +48,7 @@ const Projects = ({ data }) => {
         ))}
       </S.Projects>
     </S.Section>
-  )
-}
+  );
+};
 
-export default Projects
+export default Projects;
