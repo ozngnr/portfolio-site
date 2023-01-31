@@ -30,8 +30,8 @@ function ContextProvider({ children }) {
     return () => {
       clearTimeout(logoTimer);
     };
-  }, []);
-
+  }, [setIsLoading]);
+  
   return (
     <Context.Provider
       value={{
