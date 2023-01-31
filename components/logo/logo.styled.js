@@ -27,16 +27,16 @@ export const Wrapper = styled.div`
   min-width: 100px;
   padding: 1.5em 0;
   transform: translate(0, 0);
-  /* transition: all 0.5s linear 2s; */
+  transition: all 0.5s linear 2s;
 
-  /* ${({ isLoading }) =>
+  ${({ isLoading }) =>
     isLoading &&
     css`
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       font-size: 3rem;
-    `} */
+    `}
 
   span {
     display: inline-block;
@@ -60,12 +60,12 @@ export const Container = styled.div`
   padding: 0 ${({ headerPos }) => headerPos.left + "px"};
   transition: background 0.5s linear 2s, width 0s 3s, height 0s 3s;
   z-index: 10000;
-/* 
+
   ${({ isLoading }) =>
     isLoading &&
     css`
       width: 100%;
       height: 100%;
       background: ${({ theme }) => theme.background};
-    `} */
+    `}
 `
