@@ -4,10 +4,10 @@ import { FiExternalLink } from 'react-icons/fi';
 import { useSectionInView } from '../../hooks/useSectionInView';
 
 const Projects = ({ data }) => {
-  const [sectionREf] = useSectionInView();
+  const { sectionRef } = useSectionInView();
 
   return (
-    <S.Section id="projects" name="projects." ref={sectionREf}>
+    <S.Section id="projects" name="projects." ref={sectionRef}>
       <S.SectionTitle>projects.</S.SectionTitle>
       <S.Projects>
         {data.map((project) => (

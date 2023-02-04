@@ -28,5 +28,5 @@ export const useSectionInView = () => {
     };
   }, [setSection]);
 
-  return [sectionRef];
+  return { sectionRef };
 };

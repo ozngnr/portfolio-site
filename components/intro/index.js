@@ -5,7 +5,7 @@ import { useSectionInView } from '../../hooks/useSectionInView';
 import profileImg from '../../public/images/portrait.webp';
 
 const Intro = () => {
-  const [sectionRef] = useSectionInView();
+  const { sectionRef } = useSectionInView();
 
   return (
     <S.Section id="home" name="" ref={sectionRef}>
