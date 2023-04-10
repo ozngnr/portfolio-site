@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
 export const Text = styled.div`
   display: none;
@@ -12,20 +12,23 @@ export const Text = styled.div`
     font-weight: 600;
     top: 50%;
     left: 0;
-    left: ${({ active }) => (active ? "0%" : "-100%")};
+    left: ${({ active }) => (active ? '0%' : '-100%')};
     transform: translateY(-50%);
     transition: left 0.3s ease-in-out;
     padding-left: 10px;
-    color: ${({ theme }) => theme.textTransparent};
+    -webkit-text-stroke: 1px ${({ theme }) => theme.background};
+    pointer-events: none;
+    color: transparent;
+    z-index: 2;
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
-      width: 1px;
+      width: 3px;
       height: 100%;
       background: ${({ theme }) => theme.accent};
     }
   }
-`
+`;

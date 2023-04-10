@@ -1,5 +1,11 @@
-import { DiHtml5, DiCss3, DiJavascript1, DiSass, DiReact } from "react-icons/di"
-import { SiGatsby, SiNextdotjs } from "react-icons/si"
+import {
+  DiHtml5,
+  DiCss3,
+  DiJavascript1,
+  DiSass,
+  DiReact,
+} from 'react-icons/di';
+import { SiGatsby, SiNextdotjs } from 'react-icons/si';
 
 const icons = {
   html: <DiHtml5 />,
@@ -9,9 +15,9 @@ const icons = {
   sass: <DiSass />,
   next: <SiNextdotjs />,
   gatsby: <SiGatsby />,
-}
+};
 
 export default function StackIcon({ name }) {
-  const icon = icons[name.toLowerCase()]
-  return <>{icon}</>
+  const icon = icons[name.toLowerCase()];
+  return icon;
 }

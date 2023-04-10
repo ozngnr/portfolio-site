@@ -1,39 +1,39 @@
-import styled, { css } from "styled-components"
+import styled, { css } from 'styled-components';
+import { Container as BaseContainer } from '../../styles/global';
 
 export const Header = styled.header`
-  position: sticky;
-  top: 0;
-  width: 90%;
-  margin: auto;
+  position: fixed;
+  width: 100%;
   max-width: 1440px;
+  top: 0;
+  margin: 0 auto;
   padding: 1.5em 0;
-  height: 5em;
-  background: ${({ theme }) => theme.background};
-  z-index: 9999;
-`
+  z-index: 999;
+`;
+
+export const Container = styled.div`
+  ${BaseContainer};
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+`;
+
 export const Nav = styled.nav`
   position: fixed;
   width: 100%;
   top: 0;
   bottom: 0;
-  left: ${({ navOpen }) => (navOpen ? 0 : "100%")};
+  left: ${({ navOpen }) => (navOpen ? 0 : '100%')};
   background: ${({ theme }) => theme.background};
-  transition: left 0.2s ease-out;
-  z-index: -1;
+  transition: left 0.3s ease-out;
+  z-index: 1000;
 
   @supports (backdrop-filter: blur(10px)) {
     background: ${({ theme }) => theme.bgNavigation};
     backdrop-filter: blur(10px);
   }
+`;
 
-  @media (min-width: 900px) {
-    position: unset;
-    float: right;
-    width: auto;
-    background: none;
-    backdrop-filter: none;
-  }
-`
 export const NavList = styled.ul`
   display: flex;
   flex-direction: column;
@@ -44,7 +44,8 @@ export const NavList = styled.ul`
   @media (min-width: 900px) {
     flex-direction: row;
   }
-`
+`;
+
 export const NavItem = styled.li`
   font-size: 2rem;
   margin: 1em 0;
@@ -54,7 +55,7 @@ export const NavItem = styled.li`
     font-weight: 600;
     margin: 0 0 0 1.5em;
   }
-`
+`;
 export const NavLink = styled.a`
   display: inline-block;
   color: ${({ theme }) => theme.text};
@@ -63,19 +64,18 @@ export const NavLink = styled.a`
   &:hover {
     border-bottom: 1px solid ${({ theme }) => theme.accent};
   }
-`
+`;
 
 export const NavToggle = styled.button`
-  border: none;
-  padding: 0.825em 0;
+  position: relative;
+  display: block;
+  grid-column: 3 / 4;
+  justify-self: end;
+  padding: 2em;
   background: transparent;
-  float: right;
   cursor: pointer;
-
-  @media (min-width: 900px) {
-    display: none;
-  }
-`
+  z-index: 10000;
+`;
 
 export const Hamburger = styled.span`
   position: relative;
@@ -85,7 +85,7 @@ export const Hamburger = styled.span`
 
   &::after,
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     width: 1.75em;
     height: 2px;
@@ -115,4 +115,4 @@ export const Hamburger = styled.span`
         transform: rotate(-45deg);
       }
     `}
-`
+`;

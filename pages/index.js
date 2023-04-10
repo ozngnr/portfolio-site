@@ -1,4 +1,5 @@
 import About from '../components/about';
+import Background from '../components/Background';
 import ContactMe from '../components/contactMe';
 import Intro from '../components/intro';
 import Layout from '../components/layout';
