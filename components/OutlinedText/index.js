@@ -1,6 +1,7 @@
 import * as S from './outlinedText.styled';
 
 const OutlinedText = ({ children, ...restProps }) => {
+  //hellop
   const displayText = (str) => {
     return str.split('').map((letter, i) => (
       <S.Letter key={`${letter}-${i}`}>
