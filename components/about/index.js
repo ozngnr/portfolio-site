@@ -3,7 +3,7 @@ import * as S from './about.styled';
 import { useInView } from 'framer-motion';
 import headshot from '/public/images/portrait.webp';
 import { SectionTitle } from '../../styles/common';
-import OutlinedText from '../OutlinedText';
+import OutlinedText from '../outlinedText';
 
 const About = () => {
   const ref = useRef();

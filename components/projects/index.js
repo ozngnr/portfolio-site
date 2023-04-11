@@ -4,7 +4,7 @@ import * as S from './projects.styled';
 import StackIcon, { icons } from '../../assets/stackIcons';
 import { FiExternalLink } from 'react-icons/fi';
 import { SectionTitle } from '../../styles/common';
-import OutlinedText from '../OutlinedText';
+import OutlinedText from '../outlinedText';
 
 const Projects = ({ data }) => {
   const ref = useRef();

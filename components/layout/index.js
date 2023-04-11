@@ -7,7 +7,6 @@ import Header from '../header';
 import Footer from '../footer';
 import SectionName from '../sectionName';
 import Socials from '../socials';
-import Background from '../Background';
 
 const Layout = ({ children }) => {
   // const { sectionName, sectionInView } = useContext(Context);

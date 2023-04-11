@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 import * as S from './intro.styled';
-import OutlinedText from '../OutlinedText';
+import OutlinedText from '../outlinedText';
 import { useBackgroundAnimation } from '../../hooks/useBackgroundAnimation';
-import Background from '../Background';
+import Background from '../background';
 
 const Intro = () => {
   const ref = useRef(null);

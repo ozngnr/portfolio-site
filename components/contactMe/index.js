@@ -2,7 +2,7 @@ import * as S from './contactMe.styled';
 import { Formik, Form } from 'formik';
 import { AiOutlineSend } from 'react-icons/ai';
 import { SectionTitle } from '../../styles/common';
-import OutlinedText from '../OutlinedText';
+import OutlinedText from '../outlinedText';
 
 const ContactMe = () => {
   return (
