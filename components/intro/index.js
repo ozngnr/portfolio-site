@@ -15,6 +15,7 @@ const Intro = () => {
       <Background animations={backgroundAnimations} />
       <S.Section id="home" ref={ref}>
         <S.Container>
+          <OutlinedText>ozan</OutlinedText>
           <OutlinedText
             style={{
               fontSize: '12rem',
