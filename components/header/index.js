@@ -7,32 +7,11 @@ import localFont from 'next/font/local';
 
 const Header = () => {
   const { navOpen, setNavOpen, isLoading } = useContext(Context);
-  const [headerPos, setHeaderPos] = useState({ height: '', left: '' });
-  const headerRef = useRef();
-
-  //get header position for logo animation
-  useEffect(() => {
-    const handleResize = () => {
-      const { clientHeight, offsetLeft } = headerRef.current;
-
-      setHeaderPos({ height: clientHeight, left: offsetLeft });
-    };
-
-    handleResize();
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   return (
-    <S.Header ref={headerRef}>
+    <S.Header>
       <S.Container>
-        <Logo isLoading={isLoading} headerPos={headerPos}>
-          ozanguner
-        </Logo>
+        <Logo />
 
         <S.NavToggle
           aria-label="Navigation Button"

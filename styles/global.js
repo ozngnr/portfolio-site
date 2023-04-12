@@ -1,12 +1,15 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import { Outfit } from 'next/font/google';
 import localFont from 'next/font/local';
+import { device } from './breakpoints';
 
 const outfit = Outfit({
   subsets: ['latin'],
   style: 'normal',
+  weight: ['300', '400'],
 });
 
+console.log(outfit);
 const roxborough = localFont({
   src: [
     {
@@ -50,7 +53,6 @@ export const GlobalStyles = createGlobalStyle`
   }
   section {
     position: relative;
-    /* display: flex; */
   }
   /* Typography */
   h1,
@@ -81,6 +83,9 @@ export const BaseContainer = styled.div`
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 2em;
-  border: 1px solid green;
+  padding: 2em;
+
+  @media ${device.laptop} {
+    padding: 3rem 7.5rem;
+  }
 `;

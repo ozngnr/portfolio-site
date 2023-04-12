@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../../styles/breakpoints';
 
 export const EmailLink = styled.a`
   writing-mode: vertical-rl;
@@ -40,7 +41,7 @@ export const Container = styled.div`
     }
   }
 
-  @media (min-width: 900px) {
+  @media ${device.laptop} {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;

@@ -1,17 +1,23 @@
 import * as S from './contactMe.styled';
+import { useRef } from 'react';
+import { useInView } from 'framer-motion';
 import { Formik, Form } from 'formik';
 import { AiOutlineSend } from 'react-icons/ai';
-import { SectionTitle } from '../../styles/common';
+import { SectionTitle, MobileSectionTitle } from '../../styles/common';
 import OutlinedText from '../outlinedText';
+import useSectionInView from '../../hooks/useSectionInView';
 
 const ContactMe = () => {
+  const ref = useRef();
+  const { isInView } = useSectionInView(ref);
+
   return (
-    <S.Section id="contact">
-      <SectionTitle as={OutlinedText} vertical>
+    <S.Section id="contact" ref={ref}>
+      <SectionTitle as={OutlinedText} vertical="true" isInView={isInView}>
         contact.
       </SectionTitle>
       <S.Container>
-        <S.SectionTitle>Let's talk.</S.SectionTitle>
+        <MobileSectionTitle>Let's talk.</MobileSectionTitle>
         <Formik
           initialValues={{
             fullName: '',

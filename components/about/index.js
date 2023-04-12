@@ -1,26 +1,25 @@
 import { useRef } from 'react';
 import * as S from './about.styled';
 import { useInView } from 'framer-motion';
-import headshot from '/public/images/portrait.webp';
-import { SectionTitle } from '../../styles/common';
+import { SectionTitle, MobileSectionTitle } from '../../styles/common';
 import OutlinedText from '../outlinedText';
+import useSectionInView from '../../hooks/useSectionInView';
 
 const About = () => {
   const ref = useRef();
-  const isInView = useInView(ref, { margin: '-50% 0% -50% 0%' });
+  const { isInView } = useSectionInView(ref);
 
   return (
-    <S.Section id="about" ref={ref} style={{ border: '1px solid yellow' }}>
-      <SectionTitle vertical as={OutlinedText} isInView={isInView}>
+    <S.Section id="about" ref={ref}>
+      <SectionTitle vertical="true" as={OutlinedText} isInView={isInView}>
         about.
       </SectionTitle>
       <S.Container>
-        {/* <S.SectionTitle>about.</S.SectionTitle> */}
+        <MobileSectionTitle>about.</MobileSectionTitle>
         <S.TopText>
           Hi, I'm Ozan. A self-taught front end developer who is highly
           passionate about web development, innovation and creativity.
         </S.TopText>
-        <S.Headshot src={headshot} />
         <S.Body>
           <S.Text>
             My interest in programming started years ago when I needed a website

@@ -1,12 +1,17 @@
 import styled, { css } from 'styled-components';
+import { device } from '../../styles/breakpoints';
+import { motion } from 'framer-motion';
 
 export const Text = styled.div`
-  --text-fs: ${({ style }) => (style ? style.fontSize : '1rem')};
-
+  --text-fs: 7rem;
   display: flex;
   font-family: var(--roxborough-font);
-  -webkit-text-stroke: 1px black;
-  mix-blend-mode: overlay;
+  font-size: var(--text-fs);
+  margin-top: -1.25rem;
+
+  @media ${device.tablet} {
+    --text-fs: 12rem;
+  }
 
   ${({ vertical }) =>
     vertical &&
@@ -20,18 +25,13 @@ export const Text = styled.div`
     `}
 `;
 
-export const Letter = styled.div`
+export const Letter = styled(motion.div)`
   display: flex;
   color: transparent;
   font-weight: 900;
   height: calc(var(--text-fs) / 2);
   transition: color 1s ease-out 1s;
-
-  &:hover {
-    color: ${({ theme }) => theme.background};
-    color: blanchedalmond;
-    transition: color 0s;
-  }
+  -webkit-text-stroke: 1px hsl(222, 40%, 56%);
 
   & span {
     pointer-events: none;
@@ -42,6 +42,13 @@ export const Letter = styled.div`
       width: 0;
       height: 0;
       margin-top: calc((var(--text-fs) / -2));
+    }
+  }
+
+  @media ${device.laptop} {
+    &:hover {
+      color: hsl(222, 40%, 56%);
+      transition: color 0s;
     }
   }
 `;

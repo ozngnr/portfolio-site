@@ -3,19 +3,21 @@ import { useInView } from 'framer-motion';
 import * as S from './projects.styled';
 import StackIcon, { icons } from '../../assets/stackIcons';
 import { FiExternalLink } from 'react-icons/fi';
-import { SectionTitle } from '../../styles/common';
+import { SectionTitle, MobileSectionTitle } from '../../styles/common';
 import OutlinedText from '../outlinedText';
+import useSectionInView from '../../hooks/useSectionInView';
 
 const Projects = ({ data }) => {
   const ref = useRef();
-  const isInView = useInView(ref, { margin: '-40% 0% -40% 0%' });
+  const { isInView } = useSectionInView(ref);
 
   return (
     <S.Section id="projects" ref={ref}>
-      <SectionTitle as={OutlinedText} vertical>
+      <SectionTitle as={OutlinedText} vertical="true" isInView={isInView}>
         projects.
       </SectionTitle>
       <S.Container>
+        <MobileSectionTitle>projects.</MobileSectionTitle>
         <S.Projects>
           {data.map((project) => (
             <S.Project key={project.id}>

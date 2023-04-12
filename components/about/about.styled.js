@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import styled from 'styled-components';
 import { BaseContainer } from '../../styles/global';
+import { device } from '../../styles/breakpoints';
 
 export const ExternalLink = styled.a`
   color: ${({ theme }) => theme.text};
@@ -12,54 +12,34 @@ export const ExternalLink = styled.a`
   }
 `;
 
-export const Headshot = styled(Image)`
-  max-width: 300px;
-  height: auto;
-  /* mix-blend-mode: lighten; */
-`;
-
 export const Text = styled.p`
   font-size: 1.125rem;
-  margin: 1em 0;
   line-height: 1.6;
   font-weight: 300;
+  margin-bottom: 1.5rem;
   color: ${({ theme }) => theme.textSecondary};
 `;
 export const TopText = styled.p`
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 600;
   line-height: 1.4;
   max-width: 550px;
+  margin-bottom: 2rem;
+
+  @media {device.tablet} {
+    font-size: 2rem;
+  }
 `;
 export const Body = styled.div`
   max-width: 600px;
   align-self: flex-end;
 `;
 
-export const SectionTitle = styled.h2`
-  position: relative;
-  font-weight: 600;
-  font-size: 1.75rem;
-  padding: 0.5em;
-  margin-bottom: 1.5em;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 1px;
-    height: 100%;
-    background: ${({ theme }) => theme.accent};
-  }
-
-  @media (min-width: 900px) {
-    display: none;
-  }
-`;
 export const Container = styled(BaseContainer)`
   display: flex;
   flex-direction: column;
 `;
 
-export const Section = styled.section``;
+export const Section = styled.section`
+  border: 1px solid yellow;
+`;

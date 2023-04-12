@@ -2,12 +2,14 @@ import styled, { css } from 'styled-components';
 import { Container as BaseContainer } from '../../styles/global';
 
 export const Header = styled.header`
+  display: block;
   position: fixed;
   width: 100%;
   max-width: 1440px;
   top: 0;
+  left: 0;
+  right: 0;
   margin: 0 auto;
-  padding: 1.5em 0;
   z-index: 999;
 `;
 
@@ -15,7 +17,9 @@ export const Container = styled.div`
   ${BaseContainer};
 
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;s
+  padding: 1em;
 `;
 
 export const Nav = styled.nav`
@@ -67,11 +71,9 @@ export const NavLink = styled.a`
 `;
 
 export const NavToggle = styled.button`
-  position: relative;
-  display: block;
   grid-column: 3 / 4;
   justify-self: end;
-  padding: 2em;
+  padding: 1em;
   background: transparent;
   cursor: pointer;
   z-index: 10000;
