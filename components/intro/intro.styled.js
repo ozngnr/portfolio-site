@@ -29,8 +29,8 @@ export const MyImage = styled(Image)`
 
 export const ImageContainer = styled(motion.div)`
   position: relative;
-  mix-blend-mode: luminosity;
   margin-bottom: -50px;
+  mix-blend-mode: luminosity;
   opacity: 0;
 `;
 

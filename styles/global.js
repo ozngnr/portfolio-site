@@ -49,7 +49,7 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => theme.background};
     color: ${({ theme }) => theme.text};
     font-size: 16px;
-
+    overflow-x: hidden;
   }
   section {
     position: relative;
