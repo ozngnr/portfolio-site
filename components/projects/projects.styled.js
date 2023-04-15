@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { BaseContainer } from '../../styles/global';
+import { motion } from 'framer-motion';
+import { device } from '../../styles/breakpoints';
 
 export const Stack = styled.div`
   color: ${({ theme }) => theme.textTransparent};
@@ -29,40 +31,38 @@ export const Footer = styled.div`
   justify-content: space-between;
 `;
 export const Description = styled.div`
-  font-weight: 400;
+  font-weight: 300;
   margin: 1.5em 0;
+  max-width: 600px;
 `;
 export const ProjectTitle = styled.h3`
-  font-weight: 600;
+  font-weight: 400;
   font-size: 1.5rem;
-  padding-bottom: 0.5em;
   color: ${({ theme }) => theme.text};
-  border-bottom: 1px solid;
   text-transform: uppercase;
+
   span {
-    margin-right: 1em;
+    margin-right: 20px;
   }
 `;
-export const Project = styled.div`
+export const Project = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  border-radius: 5px;
+  border: 1px solid ${({ theme }) => theme.textTransparent};
+  border-radius: 2px;
   color: ${({ theme }) => theme.textSecondary};
-
-  @media (min-width: 900px) {
-    padding: 2em 1.5em;
-    &:hover {
-      box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.3);
-    }
-  }
+  background-color: ${({ theme }) => theme.bgLight};
+  padding: 1.5em;
 `;
-export const Projects = styled.div`
+export const Projects = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 1em;
   margin: 0 auto;
-`;
 
+  @media ${device.tablet} {
+    grid-template-columns: repeat(auto-fill, minmax(410px, 1fr));
+  }
+`;
 export const SectionTitle = styled.h2`
   position: relative;
   font-weight: 600;
@@ -86,11 +86,17 @@ export const SectionTitle = styled.h2`
   }
 `;
 
-export const Container = styled(BaseContainer)``;
+export const Container = styled(BaseContainer)`
+  border: 1px solid green;
+`;
 
 export const Section = styled.section`
   svg {
     position: relative;
     margin-bottom: -2px;
+  }
+
+  @media ${device.laptop} {
+    padding: 6rem 0;
   }
 `;

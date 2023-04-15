@@ -6,10 +6,12 @@ import { FiExternalLink } from 'react-icons/fi';
 import { SectionTitle, MobileSectionTitle } from '../../styles/common';
 import OutlinedText from '../outlinedText';
 import useSectionInView from '../../hooks/useSectionInView';
-
+import { motion } from 'framer-motion';
+import useFadeIn from '../../hooks/useFadeIn';
 const Projects = ({ data }) => {
   const ref = useRef();
   const { isInView } = useSectionInView(ref);
+  const { fadeIn } = useFadeIn(0);
 
   return (
     <S.Section id="projects" ref={ref}>
@@ -20,7 +22,7 @@ const Projects = ({ data }) => {
         <MobileSectionTitle>projects.</MobileSectionTitle>
         <S.Projects>
           {data.map((project) => (
-            <S.Project key={project.id}>
+            <S.Project key={project.id} {...fadeIn}>
               <S.ProjectTitle>
                 <span>{project.projectNumber}</span>
                 {project.title}

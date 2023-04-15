@@ -7,10 +7,15 @@ export const Text = styled.div`
   display: flex;
   font-family: var(--roxborough-font);
   font-size: var(--text-fs);
-  margin-top: -1.25rem;
+  margin-top: -1rem;
 
   @media ${device.tablet} {
     --text-fs: 12rem;
+    margin-top: -2rem;
+  }
+  @media ${device.laptop} {
+    --text-fs: 16rem;
+    margin-top: -2rem;
   }
 
   ${({ vertical }) =>
@@ -31,7 +36,7 @@ export const Letter = styled(motion.div)`
   font-weight: 900;
   height: calc(var(--text-fs) / 2);
   transition: color 1s ease-out 1s;
-  -webkit-text-stroke: 1px hsl(222, 40%, 56%);
+  -webkit-text-stroke: 1px ${({ theme }) => theme.accent};
 
   & span {
     pointer-events: none;
@@ -47,7 +52,7 @@ export const Letter = styled(motion.div)`
 
   @media ${device.laptop} {
     &:hover {
-      color: hsl(222, 40%, 56%);
+      color: ${({ theme }) => theme.accent};
       transition: color 0s;
     }
   }

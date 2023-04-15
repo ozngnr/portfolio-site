@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { BaseContainer } from '../../styles/global';
 import { device } from '../../styles/breakpoints';
+import { motion } from 'framer-motion';
 
 export const ExternalLink = styled.a`
   color: ${({ theme }) => theme.text};
@@ -12,14 +13,14 @@ export const ExternalLink = styled.a`
   }
 `;
 
-export const Text = styled.p`
+export const Text = styled(motion.p)`
   font-size: 1.125rem;
   line-height: 1.6;
   font-weight: 300;
   margin-bottom: 1.5rem;
   color: ${({ theme }) => theme.textSecondary};
 `;
-export const TopText = styled.p`
+export const TopText = styled(motion.p)`
   font-size: 1.75rem;
   font-weight: 600;
   line-height: 1.4;
@@ -30,16 +31,13 @@ export const TopText = styled.p`
     font-size: 2rem;
   }
 `;
-export const Body = styled.div`
+
+export const BottomText = styled(motion.div)`
   max-width: 600px;
   align-self: flex-end;
 `;
-
 export const Container = styled(BaseContainer)`
   display: flex;
   flex-direction: column;
 `;
-
-export const Section = styled.section`
-  border: 1px solid yellow;
-`;
+export const Section = styled.section``;

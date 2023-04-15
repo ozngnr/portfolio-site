@@ -56,8 +56,7 @@ export const GlobalStyles = createGlobalStyle`
   }
   /* Typography */
   h1,
-  h2,
-  h3 {
+  h2 {
     font-family: var(--roxborough-font), sans-serif;
   }
 

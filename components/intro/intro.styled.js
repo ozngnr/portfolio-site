@@ -1,6 +1,7 @@
-import styled, { keyframes } from 'styled-components';
-import { motion } from 'framer-motion';
+import styled from 'styled-components';
 import { BaseContainer } from '../../styles/global';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export const Section = styled.section``;
 
@@ -12,12 +13,35 @@ export const Container = styled(BaseContainer)`
   height: 100vh;
 `;
 
-export const Title = styled.div``;
 export const Subtitle = styled.h2`
   color: ${({ theme }) => theme.textSecondary};
   font-size: 1.5rem;
+  font-weight: 300;
   margin-top: 1rem;
   font-family: var(--outfit-font);
   text-align: center;
-  text-transform: capitalize;
+`;
+
+export const MyImage = styled(Image)`
+  width: 100%;
+  height: auto;
+`;
+
+export const ImageContainer = styled(motion.div)`
+  position: relative;
+  mix-blend-mode: luminosity;
+  margin-bottom: -50px;
+  opacity: 0;
+`;
+
+export const ImageOverlay = styled.div`
+  position: absolute;
+  background: linear-gradient(
+    transparent 70%,
+    ${({ theme }) => theme.background}
+  );
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 `;

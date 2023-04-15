@@ -1,12 +1,12 @@
 export const theme = {
   dark: {
-    background: 'hsl(210, 41%, 8%)',
-    bgLight: 'hsl(198, 41%, 10%)',
+    background: 'hsl(210, 40%, 8%)',
+    bgLight: 'hsl(210, 35%, 10%)',
     bgNavigation: 'hsla(231, 9%, 0%, 0.3)',
 
     text: 'hsl(0, 0%, 100%)',
     textSecondary: 'hsl(0, 0%, 80%)',
-    textTransparent: 'hsla(0, 0%, 100%, 0.3)',
+    textTransparent: 'hsla(0, 0%, 100%, 0.1)',
     accent: 'rgb(223, 176, 7)',
   },
   light: {

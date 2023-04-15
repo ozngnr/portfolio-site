@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { Form as FormikForm, Field as FormikField } from 'formik';
 import { BaseContainer } from '../../styles/global';
+import { motion } from 'framer-motion';
+import { device } from '../../styles/breakpoints';
 
 export const Button = styled.button`
   display: grid;
@@ -52,26 +54,14 @@ export const Form = styled(FormikForm)`
   position: relative;
   margin: auto;
 `;
+export const Body = styled(motion.div)`
+  text-align: center;
+  margin-bottom: 4em;
+`;
 
-export const SectionTitle = styled.h2`
-  position: relative;
-  font-weight: 600;
-  font-size: 1.75rem;
-  padding: 0.5em;
-  margin-bottom: 1.5em;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 1px;
-    height: 100%;
-    background: ${({ theme }) => theme.accent};
-  }
-
-  @media (min-width: 900px) {
-    display: none;
+export const Text = styled.h3`
+  &:first-of-type {
+    font-size: 2rem;
   }
 `;
 
@@ -81,6 +71,14 @@ export const Row = styled.div`
   flex-wrap: wrap;
   gap: 0 1em;
 `;
-export const Container = styled(BaseContainer)``;
+export const Container = styled(BaseContainer)`
+  @media ${device.laptop} {
+    padding: 3rem 8rem;
+  }
+`;
 
-export const Section = styled.section``;
+export const Section = styled.section`
+  @media ${device.laptop} {
+    padding: 6rem 0;
+  }
+`;
