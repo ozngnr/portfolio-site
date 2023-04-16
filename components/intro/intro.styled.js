@@ -15,11 +15,12 @@ export const Container = styled(BaseContainer)`
 
 export const Subtitle = styled.h2`
   color: ${({ theme }) => theme.textSecondary};
-  font-size: 1.5rem;
-  font-weight: 300;
+  font-size: 2rem;
   margin-top: 1rem;
   font-family: var(--outfit-font);
   text-align: center;
+  text-transform: capitalize;
+  z-index: 800;
 `;
 
 export const MyImage = styled(Image)`
@@ -32,6 +33,7 @@ export const ImageContainer = styled(motion.div)`
   margin-bottom: -50px;
   mix-blend-mode: luminosity;
   opacity: 0;
+  width: 500px;
 `;
 
 export const ImageOverlay = styled.div`

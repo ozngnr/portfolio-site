@@ -6,7 +6,7 @@ export const theme = {
 
     text: 'hsl(0, 0%, 100%)',
     textSecondary: 'hsl(0, 0%, 80%)',
-    textTransparent: 'hsla(0, 0%, 100%, 0.1)',
+    textTransparent: 'hsl(232, 6%, 30%)',
     accent: 'rgb(223, 176, 7)',
   },
   light: {

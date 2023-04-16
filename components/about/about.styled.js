@@ -40,4 +40,6 @@ export const Container = styled(BaseContainer)`
   display: flex;
   flex-direction: column;
 `;
-export const Section = styled.section``;
+export const Section = styled.section`
+  padding-top: 100px;
+`;

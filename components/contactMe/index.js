@@ -37,27 +37,22 @@ const ContactMe = () => {
           }}
         >
           <S.Form>
-            <S.Row>
-              {/* <S.Label htmlFor="fullName">Name</S.Label> */}
-              <S.Field id="fullName" name="fullName" placeholder="name" />
-
-              {/* <S.Label htmlFor="email">Email</S.Label> */}
-              <S.Field id="email" name="email" placeholder="email" />
-              {/* <S.Label htmlFor="email">Subject</S.Label> */}
-              <S.Field id="subject" name="subject" placeholder="subject" />
-            </S.Row>
-
-            {/* <S.Label htmlFor="lastName" >Message</S.Label> */}
-            <S.Field
-              style={{ resize: 'none' }}
-              as="textarea"
-              placeholder="message"
-              rows={8}
-            ></S.Field>
+            <S.FieldGroup>
+              <S.Row>
+                <S.Field id="fullName" name="fullName" placeholder="name" />
+                <S.Field id="email" name="email" placeholder="email" />
+                <S.Field id="subject" name="subject" placeholder="subject" />
+              </S.Row>
+              <S.Field
+                style={{ resize: 'none' }}
+                as="textarea"
+                placeholder="message"
+                rows={8}
+              ></S.Field>
+            </S.FieldGroup>
 
             <S.Button type="submit">
-              <AiOutlineSend />
-              send
+              <S.PaperPlane />
             </S.Button>
           </S.Form>
         </Formik>

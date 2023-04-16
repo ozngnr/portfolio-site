@@ -1,35 +1,50 @@
 import styled, { css } from 'styled-components';
-import { Container as BaseContainer } from '../../styles/global';
+import { motion } from 'framer-motion';
 
-export const Header = styled.header`
-  display: block;
+export const Header = styled(motion.header)`
   position: fixed;
-  width: 100%;
-  max-width: 1440px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  padding: 0.5em 1em;
   top: 0;
   left: 0;
   right: 0;
-  margin: 0 auto;
   z-index: 999;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+
+    background-image: radial-gradient(
+      rgba(0, 0, 0, 0) 2px,
+      ${({ theme }) => theme.background} 4px
+    );
+    background-size: 5px 5px;
+
+    @supports (backdrop-filter: blur(5px)) {
+      backdrop-filter: blur(5px);
+    }
+  }
 `;
 
-export const Container = styled.div`
-  ${BaseContainer};
-
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;s
-  padding: 1em;
-`;
+export const Container = styled.div``;
 
 export const Nav = styled.nav`
   position: fixed;
   width: 100%;
   top: 0;
+  left: 0;
   bottom: 0;
-  left: ${({ navOpen }) => (navOpen ? 0 : '100%')};
+  transform: translateY(${({ navOpen }) => (navOpen ? 0 : '-100%')});
   background: ${({ theme }) => theme.background};
-  transition: left 0.3s ease-out;
+  transition: all 0.3s ease-in-out;
+  font-family: var(--title-font);
   z-index: 1000;
 
   @supports (backdrop-filter: blur(10px)) {
@@ -82,15 +97,14 @@ export const NavToggle = styled.button`
 export const Hamburger = styled.span`
   position: relative;
   display: block;
-  width: 1.75em;
-  height: 2px;
+  width: 2.5em;
 
   &::after,
   &::before {
     content: '';
     position: absolute;
-    width: 1.75em;
-    height: 2px;
+    width: 100%;
+    height: 1px;
     right: 0;
     background: ${({ theme }) => theme.text};
     transition: transform 0.2s ease-in-out, top 0.2s 0.2s;

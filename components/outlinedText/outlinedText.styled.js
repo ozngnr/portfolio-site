@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 export const Text = styled.div`
   --text-fs: 7rem;
   display: flex;
-  font-family: var(--roxborough-font);
+  font-family: var(--title-font);
   font-size: var(--text-fs);
   margin-top: -1rem;
 
@@ -34,12 +34,14 @@ export const Letter = styled(motion.div)`
   display: flex;
   color: transparent;
   font-weight: 900;
+  /* border: 1px solid red; */
   height: calc(var(--text-fs) / 2);
   transition: color 1s ease-out 1s;
   -webkit-text-stroke: 1px ${({ theme }) => theme.accent};
 
   & span {
     pointer-events: none;
+    min-height: 2rem;
 
     &::before {
       content: '';

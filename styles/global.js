@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import { Outfit } from 'next/font/google';
+import { Outfit, Raleway } from 'next/font/google';
 import localFont from 'next/font/local';
 import { device } from './breakpoints';
 
@@ -8,8 +8,12 @@ const outfit = Outfit({
   style: 'normal',
   weight: ['300', '400'],
 });
+const raleway = Raleway({
+  subsets: ['latin'],
+  style: 'normal',
+  weight: ['300', '400'],
+});
 
-console.log(outfit);
 const roxborough = localFont({
   src: [
     {
@@ -30,8 +34,8 @@ const roxborough = localFont({
 
 export const GlobalStyles = createGlobalStyle`
   :root {
-    --roxborough-font: ${roxborough.style.fontFamily};
-    --outfit-font: ${outfit.style.fontFamily}
+    --title-font: ${roxborough.style.fontFamily};
+    --body-font: ${raleway.style.fontFamily}
   }
 
   * {
@@ -40,12 +44,13 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
   }
   html {
-    scroll-behavior: smooth;
+    --scroll-behavior: smooth !important;
+    scroll-behavior: smooth !important;
   }
   html,
   body {
     text-rendering: optimizeSpeed;
-    font-family: var(--outfit-font), sans-serif;
+    font-family: var(--body-font), sans-serif;
     background-color: ${({ theme }) => theme.background};
     color: ${({ theme }) => theme.text};
     font-size: 16px;
@@ -57,7 +62,7 @@ export const GlobalStyles = createGlobalStyle`
   /* Typography */
   h1,
   h2 {
-    font-family: var(--roxborough-font), sans-serif;
+    font-family: var(--title-font), sans-serif;
   }
 
   p {
@@ -75,6 +80,7 @@ export const GlobalStyles = createGlobalStyle`
     background: transparent;
     cursor: pointer;
     color: inherit;
+    font-family: inherit;
   }
 `;
 

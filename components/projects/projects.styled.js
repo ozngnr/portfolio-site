@@ -86,9 +86,7 @@ export const SectionTitle = styled.h2`
   }
 `;
 
-export const Container = styled(BaseContainer)`
-  border: 1px solid green;
-`;
+export const Container = styled(BaseContainer)``;
 
 export const Section = styled.section`
   svg {

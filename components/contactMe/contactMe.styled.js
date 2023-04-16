@@ -3,40 +3,50 @@ import { Form as FormikForm, Field as FormikField } from 'formik';
 import { BaseContainer } from '../../styles/global';
 import { motion } from 'framer-motion';
 import { device } from '../../styles/breakpoints';
+import { AiOutlineSend } from 'react-icons/ai';
+
+export const PaperPlane = styled(AiOutlineSend)`
+  font-size: 1.5rem;
+`;
 
 export const Button = styled.button`
-  display: grid;
-  place-items: center;
-  /* width: 50%; */
+  display: flex;
+  flex-grow: 1;
+  flex-basis: 200px;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 1.5em;
-  border-radius: 5px;
+  border: 1px solid ${({ theme }) => theme.textTransparent};
   background-color: ${({ theme }) => theme.bgLight};
   color: ${({ theme }) => theme.textSecondary};
 
   &:focus-visible {
     outline: 1px solid ${({ theme }) => theme.accent};
   }
+
+  @media ${device.laptopL} {
+    max-width: 300px;
+  }
 `;
-export const Label = styled.label`
-  color: ${({ theme }) => theme.textSecondary};
-  margin-bottom: 0.5em;
-`;
+
 export const Field = styled(FormikField)`
   position: relative;
   flex-basis: 280px;
   flex-grow: 1;
   width: 100%;
-  border: none;
-  border-bottom: 1px solid ${({ theme }) => theme.textSecondary};
-  background-color: transparent;
+  border: 1px solid ${({ theme }) => theme.textTransparent};
+  background-color: ${({ theme }) => theme.bgLight};
   color: ${({ theme }) => theme.textSecondary};
-  padding: 0.5em 0;
-  margin-bottom: 1em;
+  padding: 0.75em;
+  font-family: var(--body-font);
 
   &:-webkit-autofill {
     -webkit-text-fill-color: ${({ theme }) => theme.textSecondary};
-    -webkit-box-shadow: 0 0 0px 1000px ${({ theme }) => theme.background} inset;
-    transition: background-color 1s ease-in-out 0s;
+    -webkit-box-shadow: 0 0 0px 1000px ${({ theme }) => theme.bgLight} inset;
+    transition: background-color 0.5s ease-in-out 0s;
+    border: 1px solid ${({ theme }) => theme.textTransparent};
   }
   &::placeholder {
     color: ${({ theme }) => theme.textTransparent};
@@ -46,14 +56,22 @@ export const Field = styled(FormikField)`
     border-bottom: 1px solid ${({ theme }) => theme.accent};
     outline: none;
   }
-  @media (min-width: 900px) {
-    font-size: 1.5rem;
+  @media ${device.laptop} {
+    font-size: 1rem;
   }
+`;
+
+export const FieldGroup = styled.div`
+  flex-grow: 1;
 `;
 export const Form = styled(FormikForm)`
   position: relative;
   margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
 `;
+
 export const Body = styled(motion.div)`
   text-align: center;
   margin-bottom: 4em;
@@ -69,8 +87,10 @@ export const Row = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 0 1em;
+  gap: 1em;
+  margin-bottom: 1em;
 `;
+
 export const Container = styled(BaseContainer)`
   @media ${device.laptop} {
     padding: 3rem 8rem;
