@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import { Outfit, Raleway } from 'next/font/google';
+import { Outfit, Poppins } from 'next/font/google';
 import localFont from 'next/font/local';
 import { device } from './breakpoints';
 
@@ -8,10 +8,10 @@ const outfit = Outfit({
   style: 'normal',
   weight: ['300', '400'],
 });
-const raleway = Raleway({
+const poppins = Poppins({
   subsets: ['latin'],
   style: 'normal',
-  weight: ['300', '400'],
+  weight: ['300', '400', '600'],
 });
 
 const roxborough = localFont({
@@ -35,7 +35,7 @@ const roxborough = localFont({
 export const GlobalStyles = createGlobalStyle`
   :root {
     --title-font: ${roxborough.style.fontFamily};
-    --body-font: ${raleway.style.fontFamily}
+    --body-font: ${poppins.style.fontFamily}
   }
 
   * {
