@@ -5,7 +5,7 @@ import {
   DiSass,
   DiReact,
 } from 'react-icons/di';
-import { SiGatsby, SiNextdotjs } from 'react-icons/si';
+import { SiGatsby, SiNextdotjs, SiStyledcomponents } from 'react-icons/si';
 
 const icons = {
   html: <DiHtml5 />,
@@ -15,6 +15,7 @@ const icons = {
   sass: <DiSass />,
   next: <SiNextdotjs />,
   gatsby: <SiGatsby />,
+  styled: <SiStyledcomponents />,
 };
 
 export default function StackIcon({ name }) {

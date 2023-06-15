@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import { Outfit, Poppins } from 'next/font/google';
+import { Outfit, DM_Sans } from 'next/font/google';
 import localFont from 'next/font/local';
 import { device } from './breakpoints';
 
@@ -8,10 +8,10 @@ const outfit = Outfit({
   style: 'normal',
   weight: ['300', '400'],
 });
-const poppins = Poppins({
+const dm_sans = DM_Sans({
   subsets: ['latin'],
-  style: 'normal',
-  weight: ['300', '400', '600'],
+  style: ['normal', 'italic'],
+  weight: ['400', '500'],
 });
 
 const roxborough = localFont({
@@ -35,7 +35,7 @@ const roxborough = localFont({
 export const GlobalStyles = createGlobalStyle`
   :root {
     --title-font: ${roxborough.style.fontFamily};
-    --body-font: ${poppins.style.fontFamily}
+    --body-font: ${dm_sans.style.fontFamily}
   }
 
   * {
@@ -55,6 +55,10 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.text};
     font-size: 16px;
     overflow-x: hidden;
+    
+    @media ${device.desktop} {
+      font-size: 18px;
+    }
   }
   section {
     position: relative;

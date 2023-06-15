@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import { BaseContainer } from '../../styles/global';
-import { motion } from 'framer-motion';
-import { device } from '../../styles/breakpoints';
+import styled from "styled-components";
+import { BaseContainer } from "../../styles/global";
+import { motion } from "framer-motion";
+import { device } from "../../styles/breakpoints";
 
 export const Stack = styled.div`
   color: ${({ theme }) => theme.textTransparent};
@@ -29,6 +29,7 @@ export const Links = styled.div`
 export const Footer = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-top: auto;
 `;
 export const Description = styled.div`
   font-weight: 300;
@@ -72,7 +73,7 @@ export const SectionTitle = styled.h2`
   margin-left: 0.5em;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: -0.5em;

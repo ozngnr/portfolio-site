@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import * as S from './intro.styled';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
-import OutlinedText from '../outlinedText';
+import OutlinedText from '../common/outlinedText';
 import profileImage from '../../assets/headshot.webp';
 import { useScroll, useTransform } from 'framer-motion';
 
@@ -25,7 +25,7 @@ const Intro = () => {
           />
         </S.ImageContainer>
 
-        <OutlinedText>ozan</OutlinedText>
+        <OutlinedText style={{ fontStyle: 'italic' }}>ozan</OutlinedText>
         <OutlinedText>guner.</OutlinedText>
         <S.Subtitle>creative software developer</S.Subtitle>
       </S.Container>

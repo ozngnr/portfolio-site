@@ -1,7 +1,7 @@
 ---
 projectNumber: '01'
 title: 'Portfolio Site'
-stack: ['React', 'Next']
+stack: ['React', 'Styled', 'Next']
 slug: 'portfolio-site'
 code: 'https://github.com/ozngnr/portfolio-site'
 ---

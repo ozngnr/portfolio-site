@@ -1,5 +1,5 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
-import { ServerStyleSheet } from 'styled-components';
+import Document, { Html, Head, Main, NextScript } from "next/document";
+import { ServerStyleSheet } from "styled-components";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -29,7 +29,7 @@ export default class MyDocument extends Document {
         <Head>
           <meta
             name="description"
-            content="Highly passionate and creative Front End Developer, based in London. Specialising in React, Gatsby and Next.js"
+            content="Highly passionate and creative Front End Developer, based in London. Specialising in React js"
           />
           <link rel="icon" href="/favicon.ico" />
         </Head>

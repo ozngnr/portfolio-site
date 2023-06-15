@@ -10,7 +10,7 @@ export const SectionTitle = styled.div`
     font-size: 7rem !important;
     top: 50%;
     transform: ${({ isInView }) =>
-      isInView ? 'translate(0, -50%)' : 'translate(-100%, -50%)'};
+      isInView ? 'translate(0, -45%)' : 'translate(-100%, -45%)'};
     transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
     z-index: 10;
   }

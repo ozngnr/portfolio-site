@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import * as S from './about.styled';
 import { useInView } from 'framer-motion';
 import { SectionTitle, MobileSectionTitle } from '../../styles/common';
-import OutlinedText from '../outlinedText';
+import OutlinedText from '../common/outlinedText';
 import useSectionInView from '../../hooks/useSectionInView';
 import useFadeIn from '../../hooks/useFadeIn';
 

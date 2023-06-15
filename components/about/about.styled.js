@@ -14,7 +14,6 @@ export const ExternalLink = styled.a`
 `;
 
 export const Text = styled(motion.p)`
-  font-size: 1.125rem;
   line-height: 1.6;
   font-weight: 300;
   margin-bottom: 1.5rem;
@@ -27,7 +26,7 @@ export const TopText = styled(motion.p)`
   max-width: 550px;
   margin-bottom: 2rem;
 
-  @media {device.tablet} {
+  @media ${device.desktop} {
     font-size: 2rem;
   }
 `;
@@ -41,5 +40,9 @@ export const Container = styled(BaseContainer)`
   flex-direction: column;
 `;
 export const Section = styled.section`
-  padding-top: 100px;
+  padding-top: 50px;
+
+  @media ${device.desktop} {
+    padding-top: 150px;
+  }
 `;

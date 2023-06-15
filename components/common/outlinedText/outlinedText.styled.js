@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { device } from '../../styles/breakpoints';
+import { device } from '../../../styles/breakpoints';
 import { motion } from 'framer-motion';
 
 export const Text = styled.div`
@@ -13,7 +13,7 @@ export const Text = styled.div`
     --text-fs: 12rem;
     margin-top: -2rem;
   }
-  @media ${device.laptop} {
+  @media ${device.desktop} {
     --text-fs: 16rem;
     margin-top: -2rem;
   }
@@ -34,7 +34,6 @@ export const Letter = styled(motion.div)`
   display: flex;
   color: transparent;
   font-weight: 900;
-  /* border: 1px solid red; */
   height: calc(var(--text-fs) / 2);
   transition: color 1s ease-out 1s;
   -webkit-text-stroke: 1px ${({ theme }) => theme.accent};
@@ -54,7 +53,7 @@ export const Letter = styled(motion.div)`
 
   @media ${device.laptop} {
     &:hover {
-      color: ${({ theme }) => theme.accent};
+      color: ${({ theme }) => theme.accentDark};
       transition: color 0s;
     }
   }

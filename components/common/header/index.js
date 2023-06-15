@@ -1,5 +1,4 @@
 import { useContext, useEffect, useRef, useState } from 'react';
-import { Context } from '../../context/context';
 import { useScroll, useTransform } from 'framer-motion';
 import * as S from './header.styled';
 import localFont from 'next/font/local';
@@ -7,8 +6,7 @@ import Link from 'next/link';
 import Logo from '../logo';
 
 const Header = () => {
-  const { navOpen, setNavOpen, isLoading } = useContext(Context);
-
+  const [navOpen, setNavOpen] = useState(false)
   return (
     <S.Header>
       <Logo />
