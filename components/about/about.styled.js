@@ -1,4 +1,7 @@
-import styled from "styled-components"
+import styled from 'styled-components';
+import { BaseContainer } from '../../styles/global';
+import { device } from '../../styles/breakpoints';
+import { motion } from 'framer-motion';
 
 export const ExternalLink = styled.a`
   color: ${({ theme }) => theme.text};
@@ -8,56 +11,38 @@ export const ExternalLink = styled.a`
   &:hover {
     color: ${({ theme }) => theme.accent};
   }
-`
+`;
 
-export const Text = styled.p`
-  margin: 1em 0;
+export const Text = styled(motion.p)`
   line-height: 1.6;
   font-weight: 300;
+  margin-bottom: 1.5rem;
   color: ${({ theme }) => theme.textSecondary};
-`
-export const TopText = styled.p`
-  font-size: 2rem;
+`;
+export const TopText = styled(motion.p)`
+  font-size: 1.75rem;
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.4;
   max-width: 550px;
-`
-export const Body = styled.div`
+  margin-bottom: 2rem;
+
+  @media ${device.desktop} {
+    font-size: 2rem;
+  }
+`;
+
+export const BottomText = styled(motion.div)`
   max-width: 600px;
   align-self: flex-end;
-`
-export const SectionTitle = styled.h2`
-  position: relative;
-  font-weight: 600;
-  font-size: 1.75rem;
-  padding: 0.5em;
-  margin-bottom: 1.5em;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 1px;
-    height: 100%;
-    background: ${({ theme }) => theme.accent};
-  }
-
-  @media (min-width: 900px) {
-    display: none;
-  }
-`
-export const Container = styled.div`
+`;
+export const Container = styled(BaseContainer)`
   display: flex;
   flex-direction: column;
-
-  @media (min-width: 900px) {
-    padding: 2em 100px;
-  }
-`
-
+`;
 export const Section = styled.section`
-  width: 90%;
-  margin: auto;
-  padding-top: 5em;
-`
+  padding-top: 50px;
+
+  @media ${device.desktop} {
+    padding-top: 150px;
+  }
+`;

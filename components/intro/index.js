@@ -1,37 +1,34 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 import * as S from './intro.styled';
-import { useSectionInView } from '../../hooks/useSectionInView';
-import profileImg from '../../public/images/portrait.webp';
+import Image from 'next/legacy/image';
+import Link from 'next/link';
+import OutlinedText from '../common/outlinedText';
+import profileImage from '../../assets/headshot.webp';
+import { useScroll, useTransform } from 'framer-motion';
 
 const Intro = () => {
-  const [sectionRef] = useSectionInView();
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 0.3], ['0px', '300px']);
 
   return (
-    <S.Section id="home" name="" ref={sectionRef}>
-      <S.Content>
-        <S.ImgWrapper>
-          <Image
-            src={profileImg}
-            alt="self portrait"
-            layout="fill"
-            sizes="50vw"
-            objectFit="cover"
-            objectPosition="top"
+    <S.Section id="home">
+      <S.Container>
+        <S.ImageContainer
+          animate={{ opacity: 1, transition: { duration: 1.5 } }}
+          style={{ y }}
+        >
+          <S.ImageOverlay></S.ImageOverlay>
+          <S.MyImage
+            src={profileImage}
             priority={true}
+            alt="ozan guner headshot"
           />
-          <S.Overlay />
-        </S.ImgWrapper>
-        <S.Body>
-          <S.Title>Bringing ideas to life.</S.Title>
-          <S.Text>
-            Creative front end developer based in <strong>London</strong>.
-          </S.Text>
-          <Link href={'#projects.'} passHref>
-            <S.SectionLink>View Projects</S.SectionLink>
-          </Link>
-        </S.Body>
-      </S.Content>
+        </S.ImageContainer>
+
+        <OutlinedText style={{ fontStyle: 'italic' }}>ozan</OutlinedText>
+        <OutlinedText>guner.</OutlinedText>
+        <S.Subtitle>creative software developer</S.Subtitle>
+      </S.Container>
     </S.Section>
   );
 };

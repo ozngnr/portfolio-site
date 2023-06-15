@@ -1,10 +1,24 @@
 export const theme = {
-  default: {
-    background: "hsl(224, 40%, 20%)",
+  dark: {
+    background: "hsl(210, 40%, 8%)",
+    bgLight: "hsl(210, 35%, 10%)",
     bgNavigation: "hsla(231, 9%, 0%, 0.3)",
+
     text: "hsl(0, 0%, 100%)",
     textSecondary: "hsl(0, 0%, 80%)",
-    textTransparent: "hsla(0, 0%, 100%, 0.2)",
-    accent: "hsl(224, 90%, 50%)",
+    textTransparent: "hsl(232, 6%, 30%)",
+    accent: "hsl(41, 100%, 50%)",
+    accentDark: "hsl(41, 100%, 30%)",
+    error: "hsl(345, 100%, 40%)",
   },
-}
+  light: {
+    background: "hsl(78, 8%, 70%)",
+    bgLight: "rgb(244, 67, 54)",
+    bgNavigation: "hsla(231, 9%, 0%, 0.3)",
+
+    text: "hsla(231, 9%, 0%, 0.8)",
+    textSecondary: "hsl(198, 41%, 8%)",
+    textTransparent: "hsla(0, 0%, 100%, 0.2)",
+    accent: "rgb(244, 67, 54)",
+  },
+};

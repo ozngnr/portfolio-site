@@ -1,32 +1,10 @@
-import { useEffect, useRef, useContext } from 'react';
-import { Context } from '../context/context';
+import { useEffect, useRef } from 'react';
+import { useInView } from 'framer-motion';
 
-export const useSectionInView = () => {
-  const sectionRef = useRef(null);
-  const { setSection } = useContext(Context);
+const useSectionInView = (ref) => {
+  const isInView = useInView(ref, { margin: '-50% 0% -50% 0%' });
 
-  useEffect(() => {
-    // callback for observer
-    const callback = (entries) => {
-      entries.forEach((entry) => {
-        const sectionName = entry.target.getAttribute('name');
-        if (entry.isIntersecting) {
-          setSection(sectionName);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(callback, {
-      root: null,
-      rootMargin: '-48% 0px',
-      threshold: 0,
-    });
-    if (sectionRef.current) observer.observe(sectionRef.current);
-
-    return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
-    };
-  }, [setSection]);
-
-  return [sectionRef];
+  return { isInView };
 };
+
+export default useSectionInView;
