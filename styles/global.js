@@ -1,33 +1,28 @@
-import styled, { createGlobalStyle } from 'styled-components';
-import { Outfit, DM_Sans } from 'next/font/google';
-import localFont from 'next/font/local';
-import { device } from './breakpoints';
+import styled, { createGlobalStyle } from "styled-components";
+import { Outfit } from "next/font/google";
+import localFont from "next/font/local";
+import { device } from "./breakpoints";
 
 const outfit = Outfit({
-  subsets: ['latin'],
-  style: 'normal',
-  weight: ['300', '400'],
-});
-const dm_sans = DM_Sans({
-  subsets: ['latin'],
-  style: ['normal', 'italic'],
-  weight: ['400', '500'],
+  subsets: ["latin"],
+  style: "normal",
+  weight: ["100", "300", "400"],
 });
 
 const roxborough = localFont({
   src: [
     {
-      path: '../public/fonts/RoxboroughCF-Regular.woff2',
-      weight: '400',
+      path: "../public/fonts/RoxboroughCF-Regular.woff2",
+      weight: "400",
     },
     {
-      path: '../public/fonts/RoxboroughCF-Heavy.woff2',
-      weight: '900',
+      path: "../public/fonts/RoxboroughCF-Heavy.woff2",
+      weight: "900",
     },
     {
-      path: '../public/fonts/RoxboroughCF-HeavyItalic.woff2',
-      weight: '900',
-      style: 'italic',
+      path: "../public/fonts/RoxboroughCF-HeavyItalic.woff2",
+      weight: "900",
+      style: "italic",
     },
   ],
 });
@@ -35,7 +30,7 @@ const roxborough = localFont({
 export const GlobalStyles = createGlobalStyle`
   :root {
     --title-font: ${roxborough.style.fontFamily};
-    --body-font: ${dm_sans.style.fontFamily}
+    --body-font: ${outfit.style.fontFamily}
   }
 
   * {

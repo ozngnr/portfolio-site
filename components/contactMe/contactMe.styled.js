@@ -35,7 +35,7 @@ export const Button = styled.button`
 `;
 export const StyledErrorMessage = styled.div`
   color: ${({ theme }) => theme.error};
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   position: absolute;
 `;
 
@@ -89,14 +89,24 @@ export const Body = styled(motion.div)`
   margin-bottom: 4em;
 `;
 
-export const Text = styled.h3`
+export const Subtitle = styled.h3`
   font-family: var(--title-font);
 
   &:first-of-type {
     font-size: 2rem;
   }
 `;
+export const SubmitMessage = styled.div`
+  text-align: center;
+  font-size: 1.25rem;
+  margin-top: 1em;
+  color: ${({ theme }) => theme.accent};
+  font-weight: 100;
 
+  @media ${device.laptop} {
+    text-align: right;
+  }
+`;
 export const Row = styled.div`
   display: flex;
   flex-direction: row;

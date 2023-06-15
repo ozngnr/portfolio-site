@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import { BaseContainer } from '../../styles/global';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
+import styled from "styled-components";
+import { BaseContainer } from "../../styles/global";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 export const Section = styled.section``;
 
@@ -32,6 +32,7 @@ export const ImageContainer = styled(motion.div)`
   margin-bottom: -50px;
   mix-blend-mode: luminosity;
   opacity: 0;
+  background-color: ${({ theme }) => theme.background};
 `;
 
 export const ImageOverlay = styled.div`

@@ -9,7 +9,8 @@ export const theme = {
     textTransparent: "hsl(232, 6%, 30%)",
     accent: "hsl(41, 100%, 50%)",
     accentDark: "hsl(41, 100%, 30%)",
-    error: "hsl(345, 100%, 40%)",
+    error: "hsl(355, 75%, 42%)",
+    success: "hsl(148, 56%, 48%)",
   },
   light: {
     background: "hsl(78, 8%, 70%)",

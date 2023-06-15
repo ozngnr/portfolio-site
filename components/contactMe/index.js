@@ -1,44 +1,29 @@
 import * as S from "./contactMe.styled";
-import * as Yup from "yup";
-import axios from "axios";
 import { useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
 import { ErrorMessage, Formik } from "formik";
-import { AiOutlineSend } from "react-icons/ai";
 import { SectionTitle, MobileSectionTitle } from "../../styles/common";
 import OutlinedText from "../common/outlinedText";
 import useSectionInView from "../../hooks/useSectionInView";
 import useFadeIn from "../../hooks/useFadeIn";
 import Banner from "../banner";
 import { sendContactForm } from "../../lib/api";
+import { contactSchema } from "../../utils/validationSchemas";
 
 const initialValues = { fullName: "", email: "", message: "", subject: "" };
-
-const contactSchema = Yup.object().shape({
-  fullName: Yup.string()
-    .min(2)
-    .max(50)
-    .required("Name is required")
-    .label("Name"),
-  email: Yup.string()
-    .email("Invalid email address")
-    .required("Email is required"),
-  subject: Yup.string()
-    .min(2)
-    .max(100)
-    .required("Subject is required")
-    .label("Subject"),
-  message: Yup.string()
-    .min(5)
-    .max(200)
-    .required("Message can't be empty")
-    .label("Message"),
-});
 
 const ContactMe = () => {
   const ref = useRef();
   const { isInView } = useSectionInView(ref);
   const { fadeIn } = useFadeIn(0);
+  const [showMessage, setShowMessage] = useState(false);
+
+  const showSubmitMessage = (delay) => {
+    setShowMessage(true);
+
+    setTimeout(() => {
+      setShowMessage(false);
+    }, delay * 1000);
+  };
 
   return (
     <S.Section id="contact" ref={ref}>
@@ -48,18 +33,19 @@ const ContactMe = () => {
       <S.Container>
         <MobileSectionTitle>Contact Me.</MobileSectionTitle>
         <S.Body {...fadeIn}>
-          <S.Text>Have a project in mind?</S.Text>
+          <S.Subtitle>Have a project in mind?</S.Subtitle>
           <Banner title={"Let's talk."} />
         </S.Body>
         <Formik
           initialValues={initialValues}
           onSubmit={(values, { resetForm }) => {
             sendContactForm(values);
+            showSubmitMessage(8);
             resetForm();
           }}
           validationSchema={contactSchema}
         >
-          {({ isSubmitting, errors, touched, isValid }) => (
+          {({ errors, touched }) => (
             <S.Form>
               <S.FieldGroup>
                 <S.Row>
@@ -123,6 +109,11 @@ const ContactMe = () => {
             </S.Form>
           )}
         </Formik>
+        {showMessage && (
+          <S.SubmitMessage>
+            Message sent. Thanks for reaching out!
+          </S.SubmitMessage>
+        )}
       </S.Container>
     </S.Section>
   );
