@@ -1,14 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
-import * as S from './intro.styled';
-import Image from 'next/legacy/image';
-import Link from 'next/link';
-import OutlinedText from '../common/outlinedText';
-import profileImage from '../../assets/headshot.webp';
-import { useScroll, useTransform } from 'framer-motion';
+import * as S from "./intro.styled";
+import OutlinedText from "../common/outlinedText";
+import profileImage from "../../assets/headshot.webp";
+import { useScroll, useTransform } from "framer-motion";
 
 const Intro = () => {
   const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 0.3], ['0px', '300px']);
+  const y = useTransform(scrollYProgress, [0, 0.3], ["0px", "300px"]);
 
   return (
     <S.Section id="home">
@@ -25,7 +22,7 @@ const Intro = () => {
           />
         </S.ImageContainer>
 
-        <OutlinedText style={{ fontStyle: 'italic' }}>ozan</OutlinedText>
+        <OutlinedText style={{ fontStyle: "italic" }}>ozan</OutlinedText>
         <OutlinedText>guner.</OutlinedText>
         <S.Subtitle>creative software developer</S.Subtitle>
       </S.Container>

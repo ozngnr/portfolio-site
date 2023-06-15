@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
-import { device } from '../../../styles/breakpoints';
+import styled from "styled-components";
+import { device } from "../../../styles/breakpoints";
 
 export const Logo = styled.div`
   padding: 1em;

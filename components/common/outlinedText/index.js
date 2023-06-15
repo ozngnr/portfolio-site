@@ -1,8 +1,8 @@
-import * as S from './outlinedText.styled';
+import * as S from "./outlinedText.styled";
 
 const OutlinedText = ({ children, ...restProps }) => {
   const letters = {
-    visible: (i) => ({
+    visible: () => ({
       opacity: [1, 0.2, 1],
       transition: {
         delay: Math.random().toFixed(3),
@@ -13,7 +13,7 @@ const OutlinedText = ({ children, ...restProps }) => {
   };
 
   const displayText = (str) => {
-    return str.split('').map((letter, i) => (
+    return str.split("").map((letter, i) => (
       <S.Letter
         key={`${letter}-${i}`}
         custom={i}

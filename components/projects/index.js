@@ -1,7 +1,6 @@
 import { useRef } from "react";
-import { useInView } from "framer-motion";
 import * as S from "./projects.styled";
-import StackIcon, { icons } from "../../assets/stackIcons";
+import StackIcon from "../../assets/stackIcons";
 import { FiExternalLink } from "react-icons/fi";
 import { SectionTitle, MobileSectionTitle } from "../../styles/common";
 import OutlinedText from "../common/outlinedText";

@@ -1,10 +1,9 @@
-import { useRef } from 'react';
-import * as S from './about.styled';
-import { useInView } from 'framer-motion';
-import { SectionTitle, MobileSectionTitle } from '../../styles/common';
-import OutlinedText from '../common/outlinedText';
-import useSectionInView from '../../hooks/useSectionInView';
-import useFadeIn from '../../hooks/useFadeIn';
+import { useRef } from "react";
+import * as S from "./about.styled";
+import { SectionTitle, MobileSectionTitle } from "../../styles/common";
+import OutlinedText from "../common/outlinedText";
+import useSectionInView from "../../hooks/useSectionInView";
+import useFadeIn from "../../hooks/useFadeIn";
 
 const About = () => {
   const ref = useRef();
@@ -29,15 +28,15 @@ const About = () => {
             offered by website builders, so I decided to code my own site.
             Although my first attempt was far from perfect, it taught me a lot
             about the basics.
-          </S.Text>{' '}
+          </S.Text>{" "}
           <S.Text>
             When the pandemic hit, I saw an opportunity to improve my skills and
             invested my free time into learning how to code properly. I watched
-            video tutorials, completed front-end lessons on{' '}
+            video tutorials, completed front-end lessons on{" "}
             <S.ExternalLink href="https://freecodecamp.org" target="_blank">
               freeCodeCamp
             </S.ExternalLink>
-            ,enrolled in the{' '}
+            ,enrolled in the{" "}
             <S.ExternalLink
               href="https://scrimba.com/learn/frontend"
               target="_blank"
@@ -45,7 +44,7 @@ const About = () => {
               Front-End Developer Career Path
             </S.ExternalLink>
             on Scrimba, and built real-life projects using JavaScript and React.
-          </S.Text>{' '}
+          </S.Text>{" "}
           <S.Text>
             Since then, I've made it my mission to continue improving my
             programming skills by building well-designed, responsive web
