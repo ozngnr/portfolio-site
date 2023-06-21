@@ -1,18 +1,48 @@
-import About from '../components/about';
-import ContactMe from '../components/contactMe';
-import Intro from '../components/intro';
-import Layout from '../components/layout';
-import Projects from '../components/projects';
-import { getProjectsData } from '../lib/projects';
+import About from "../components/about";
+import ContactMe from "../components/contactMe";
+import Intro from "../components/intro";
+import Layout from "../components/layout";
+import Projects from "../components/projects";
+import { getProjectsData } from "../lib/projects";
+import Head from "next/head";
 
 export default function Home({ allProjectsData }) {
   return (
-    <Layout>
-      <Intro />
-      <About />
-      <Projects data={allProjectsData} />
-      <ContactMe />
-    </Layout>
+    <>
+      <Head>
+        <title>Ozan Guner | Software Developer</title>
+        <meta
+          name="description"
+          content="Highly passionate and creative Front End Developer, based in London. Specialising in React js"
+        />
+        <link rel="icon" href="/favicon.ico" />
+        {/* <!-- Google tag (gtag.js) --> */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-ECQVZ0CX9Z"
+        ></script>
+        <script>
+          {`window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments)}
+            gtag('js', new Date());
+
+            gtag('config', 'G-ECQVZ0CX9Z');`}
+        </script>
+        {/* <!-- Google Tag Manager --> */}
+        <script>{`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-KTZWCW3');`}</script>
+        {/* <!-- End Google Tag Manager --> */}
+      </Head>
+      <Layout>
+        <Intro />
+        <About />
+        <Projects data={allProjectsData} />
+        <ContactMe />
+      </Layout>
+    </>
   );
 }
 

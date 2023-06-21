@@ -1,20 +1,13 @@
-import { GlobalStyles } from '../styles/global';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../styles/theme';
-import Head from 'next/head';
+import { GlobalStyles } from "../styles/global";
+import { ThemeProvider } from "styled-components";
+import { theme } from "../styles/theme";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <>
-      <Head>
-        <title>Ozan Guner | Software Developer</title>
-      </Head>
-
-      <ThemeProvider theme={theme.dark}>
-        <GlobalStyles />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </>
+    <ThemeProvider theme={theme.dark}>
+      <GlobalStyles />
+      <Component {...pageProps} />
+    </ThemeProvider>
   );
 }
 
