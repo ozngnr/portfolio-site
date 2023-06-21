@@ -26,9 +26,10 @@ export const Button = styled.button`
     outline: 1px solid ${({ theme }) => theme.accent};
   }
 
-  &:active {
+  &:active:enabled {
     border: 1px solid ${({ theme }) => theme.accent};
   }
+
   @media ${device.laptopL} {
     max-width: 300px;
   }
@@ -100,7 +101,7 @@ export const SubmitMessage = styled.div`
   text-align: center;
   font-size: 1.25rem;
   margin-top: 1em;
-  color: ${({ theme }) => theme.accent};
+  color: ${({ error, theme }) => (error ? theme.error : theme.accent)};
   font-weight: 100;
 
   @media ${device.laptop} {

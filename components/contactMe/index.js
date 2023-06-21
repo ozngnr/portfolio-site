@@ -16,6 +16,8 @@ const ContactMe = () => {
   const { isInView } = useSectionInView(ref);
   const { fadeIn } = useFadeIn(0);
   const [showMessage, setShowMessage] = useState(false);
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
 
   const showSubmitMessage = (delay) => {
     setShowMessage(true);
@@ -38,81 +40,90 @@ const ContactMe = () => {
         </S.Body>
         <Formik
           initialValues={initialValues}
-          onSubmit={(values, { resetForm }) => {
-            sendContactForm(values);
+          onSubmit={async (values, { resetForm }) => {
+            try {
+              await sendContactForm(values);
+              setError(false);
+              setMessage("Message sent. Thanks for reaching out!");
+            } catch (error) {
+              console.error("Could not send message: " + error);
+              setError(true);
+              setMessage("Something went wrong please try again later");
+            }
             showSubmitMessage(8);
             resetForm();
           }}
           validationSchema={contactSchema}
         >
-          {({ errors, touched }) => (
-            <S.Form>
-              <S.FieldGroup>
-                <S.Row>
+          {({ errors, touched, isValid }) => (
+            console.log(isValid),
+            (
+              <S.Form>
+                <S.FieldGroup>
+                  <S.Row>
+                    <S.InputWrapper>
+                      <S.Field
+                        name="fullName"
+                        placeholder="name"
+                        error={touched.fullName && errors.fullName}
+                      />
+                      <ErrorMessage name="fullName">
+                        {(error) => (
+                          <S.StyledErrorMessage>{error}</S.StyledErrorMessage>
+                        )}
+                      </ErrorMessage>
+                    </S.InputWrapper>
+                    <S.InputWrapper>
+                      <S.Field
+                        name="email"
+                        placeholder="email"
+                        error={touched.email && errors.email}
+                      />
+                      <ErrorMessage name="email">
+                        {(error) => (
+                          <S.StyledErrorMessage>{error}</S.StyledErrorMessage>
+                        )}
+                      </ErrorMessage>
+                    </S.InputWrapper>
+                    <S.InputWrapper>
+                      <S.Field
+                        name="subject"
+                        placeholder="subject"
+                        error={touched.subject && errors.subject}
+                      />
+                      <ErrorMessage name="subject">
+                        {(error) => (
+                          <S.StyledErrorMessage>{error}</S.StyledErrorMessage>
+                        )}
+                      </ErrorMessage>
+                    </S.InputWrapper>
+                  </S.Row>
                   <S.InputWrapper>
                     <S.Field
-                      name="fullName"
-                      placeholder="name"
-                      error={touched.fullName && errors.fullName}
-                    />
-                    <ErrorMessage name="fullName">
+                      style={{ resize: "none", display: "block" }}
+                      component="textarea"
+                      name="message"
+                      placeholder="message"
+                      error={touched.message && errors.message}
+                      rows={8}
+                    ></S.Field>
+                    <ErrorMessage name="message">
                       {(error) => (
                         <S.StyledErrorMessage>{error}</S.StyledErrorMessage>
                       )}
                     </ErrorMessage>
                   </S.InputWrapper>
-                  <S.InputWrapper>
-                    <S.Field
-                      name="email"
-                      placeholder="email"
-                      error={touched.email && errors.email}
-                    />
-                    <ErrorMessage name="email">
-                      {(error) => (
-                        <S.StyledErrorMessage>{error}</S.StyledErrorMessage>
-                      )}
-                    </ErrorMessage>
-                  </S.InputWrapper>
-                  <S.InputWrapper>
-                    <S.Field
-                      name="subject"
-                      placeholder="subject"
-                      error={touched.subject && errors.subject}
-                    />
-                    <ErrorMessage name="subject">
-                      {(error) => (
-                        <S.StyledErrorMessage>{error}</S.StyledErrorMessage>
-                      )}
-                    </ErrorMessage>
-                  </S.InputWrapper>
-                </S.Row>
-                <S.InputWrapper>
-                  <S.Field
-                    style={{ resize: "none", display: "block" }}
-                    component="textarea"
-                    name="message"
-                    placeholder="message"
-                    error={touched.message && errors.message}
-                    rows={8}
-                  ></S.Field>
-                  <ErrorMessage name="message">
-                    {(error) => (
-                      <S.StyledErrorMessage>{error}</S.StyledErrorMessage>
-                    )}
-                  </ErrorMessage>
-                </S.InputWrapper>
-              </S.FieldGroup>
+                </S.FieldGroup>
 
-              <S.Button type="submit">
-                <S.PaperPlane style={{ transform: "rotate(-30deg" }} />
-              </S.Button>
-            </S.Form>
+                <S.Button type="submit" disabled={!isValid}>
+                  <S.PaperPlane style={{ transform: "rotate(-30deg" }} />
+                </S.Button>
+              </S.Form>
+            )
           )}
         </Formik>
         {showMessage && (
-          <S.SubmitMessage>
-            Message sent. Thanks for reaching out!
-          </S.SubmitMessage>
+          <S.SubmitMessage error={error}>{message}</S.SubmitMessage>
         )}
       </S.Container>
     </S.Section>
