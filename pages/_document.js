@@ -43,20 +43,20 @@ export default class MyDocument extends Document {
           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
           })(window,document,'script','dataLayer','GTM-KTZWCW3');`}</Script>
           {/* <!-- End Google Tag Manager --> */}
+        </Head>
 
-          {/* <!-- Google tag (gtag.js) --> */}
-          <Script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-ECQVZ0CX9Z"
-          ></Script>
-          <Script id="google-analytics" strategy="afterInteractive">
-            {`window.dataLayer = window.dataLayer || [];
+        {/* <!-- Google tag (gtag.js) --> */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-ECQVZ0CX9Z"
+        ></Script>
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments)}
             gtag('js', new Date());
 
             gtag('config', 'G-ECQVZ0CX9Z');`}
-          </Script>
-        </Head>
+        </Script>
         <body>
           {/* <!-- Google Tag Manager (noscript) --> */}
           <noscript
