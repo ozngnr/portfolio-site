@@ -3,19 +3,17 @@ import { device } from "../../../styles/breakpoints";
 import { motion } from "framer-motion";
 
 export const Text = styled.div`
-  --text-fs: 7rem;
+  --text-fs: ${({ fontSize }) => fontSize + "rem"};
   display: flex;
   font-family: var(--title-font);
   font-size: var(--text-fs);
   margin-top: -1rem;
 
   @media ${device.tablet} {
-    --text-fs: 12rem;
-    margin-top: -2rem;
+    --text-fs: ${({ fontSize }) => fontSize + 5 + "rem"};
   }
   @media ${device.desktopL} {
-    --text-fs: 16rem;
-    margin-top: -2rem;
+    --text-fs: ${({ fontSize }) => fontSize + 3 + "rem"};
   }
 
   ${({ vertical }) =>

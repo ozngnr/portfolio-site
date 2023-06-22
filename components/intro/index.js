@@ -22,8 +22,9 @@ const Intro = () => {
           />
           <S.ImageOverlay></S.ImageOverlay>
         </S.ImageContainer>
-
-        <OutlinedText style={{ fontStyle: "italic" }}>ozan</OutlinedText>
+        <OutlinedText style={{ fontStyle: "italic" }} fontSize={7}>
+          ozan
+        </OutlinedText>
         <OutlinedText fontSize={7}>guner.</OutlinedText>
         <S.Subtitle>creative software developer</S.Subtitle>
       </S.Container>

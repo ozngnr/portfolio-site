@@ -34,10 +34,10 @@ export const Header = styled(motion.header)`
   }
 `;
 
-export const Container = styled.div``;
-
 export const Nav = styled.nav`
   position: fixed;
+  display: grid;
+  place-items: center;
   width: 100%;
   top: 0;
   left: 0;
@@ -55,26 +55,45 @@ export const Nav = styled.nav`
   }
 `;
 
-export const NavList = styled(motion.ul)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-
-  @media ${device.laptop} {
-    align-items: flex-start;
-    padding-left: 5em;
-  }
+export const NavList = styled(motion.ul).attrs(() => ({
+  initial: "initial",
+  variants: {
+    initial: {
+      opacity: 1,
+    },
+    animate: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2,
+      },
+    },
+  },
+}))`
+  text-align: center;
 `;
 
-export const NavItem = styled(motion.li)`
+export const NavItem = styled(motion.li).attrs(() => ({
+  variants: {
+    initial: {
+      opacity: 0,
+      x: -200,
+    },
+    animate: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring",
+        duration: 0.5,
+      },
+    },
+  },
+}))`
   font-size: 2rem;
-  margin: 1em 0;
+  margin: 2em 0;
 
   @media ${device.laptop} {
-    font-weight: 600;
-    font-size: 3rem;
+    margin-bottom: 1.5em;
   }
 `;
 

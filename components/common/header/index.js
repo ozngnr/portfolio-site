@@ -3,36 +3,10 @@ import * as S from "./header.styled";
 import Link from "next/link";
 import Logo from "../logo";
 import OutlinedText from "../outlinedText";
+import Socials from "../socials";
 
 const navItems = ["home", "about", "projects", "contact"];
 
-const container = {
-  initial: {
-    opacity: 1,
-  },
-  animate: {
-    opacity: 1,
-    transition: {
-      delayChildren: 0.3,
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const navItemAni = {
-  initial: {
-    opacity: 0,
-    x: -200,
-  },
-  animate: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      type: "spring",
-      duration: 0.5,
-    },
-  },
-};
 const Header = () => {
   const [navOpen, setNavOpen] = useState(false);
 
@@ -48,29 +22,22 @@ const Header = () => {
       </S.NavToggle>
 
       <S.Nav navOpen={navOpen}>
-        <S.NavList
-          variants={container}
-          animate={navOpen ? "animate" : "initial"}
-          initial="initial"
-        >
+        <S.NavList animate={navOpen ? "animate" : "initial"}>
           {navItems.map((item) => (
-            <S.NavItem
-              key={item}
-              onClick={() => setNavOpen(false)}
-              variants={navItemAni}
-            >
+            <S.NavItem key={item} onClick={() => setNavOpen(false)}>
               <Link
                 href={item === "home" ? "/" : "#" + item}
                 passHref
                 legacyBehavior
               >
                 <S.NavLink>
-                  <OutlinedText fontSize={5}>{item + "."}</OutlinedText>
+                  <OutlinedText fontSize={4}>{item + "."}</OutlinedText>
                 </S.NavLink>
               </Link>
             </S.NavItem>
           ))}
         </S.NavList>
+        <Socials />
       </S.Nav>
     </S.Header>
   );

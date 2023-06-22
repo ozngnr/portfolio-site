@@ -1,6 +1,6 @@
 import * as S from "./outlinedText.styled";
 
-const OutlinedText = ({ children, ...restProps }) => {
+const OutlinedText = ({ fontSize, children, ...restProps }) => {
   const letters = {
     visible: () => ({
       opacity: [1, 0.2, 1],
@@ -8,6 +8,7 @@ const OutlinedText = ({ children, ...restProps }) => {
         delay: Math.random().toFixed(3),
         duration: 4,
         repeat: Infinity,
+        // repeatDelay: 5,
       },
     }),
   };
@@ -25,7 +26,11 @@ const OutlinedText = ({ children, ...restProps }) => {
     ));
   };
 
-  return <S.Text {...restProps}>{displayText(children)}</S.Text>;
+  return (
+    <S.Text fontSize={fontSize} {...restProps}>
+      {displayText(children)}
+    </S.Text>
+  );
 };
 
 export default OutlinedText;

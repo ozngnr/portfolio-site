@@ -66,6 +66,7 @@ export const GlobalStyles = createGlobalStyle`
 
   p {
     line-height: 1.4;
+    font-family: var(--body-font);
   }
   a {
     text-decoration: none;
