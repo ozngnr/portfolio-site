@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
-import { device } from '../../../styles/breakpoints';
-import { motion } from 'framer-motion';
+import styled, { css } from "styled-components";
+import { device } from "../../../styles/breakpoints";
+import { motion } from "framer-motion";
 
 export const Text = styled.div`
   --text-fs: 7rem;
@@ -13,7 +13,7 @@ export const Text = styled.div`
     --text-fs: 12rem;
     margin-top: -2rem;
   }
-  @media ${device.desktop} {
+  @media ${device.desktopL} {
     --text-fs: 16rem;
     margin-top: -2rem;
   }
@@ -43,7 +43,7 @@ export const Letter = styled(motion.div)`
     min-height: 2rem;
 
     &::before {
-      content: '';
+      content: "";
       display: block;
       width: 0;
       height: 0;

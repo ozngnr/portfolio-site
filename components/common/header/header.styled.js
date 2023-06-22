@@ -1,10 +1,11 @@
-import styled, { css } from 'styled-components';
-import { motion } from 'framer-motion';
+import styled, { css } from "styled-components";
+import { motion } from "framer-motion";
+import { device } from "../../../styles/breakpoints";
 
 export const Header = styled(motion.header)`
   position: fixed;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
   padding: 0.5em 1em;
   top: 0;
@@ -13,7 +14,7 @@ export const Header = styled(motion.header)`
   z-index: 999;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -41,9 +42,10 @@ export const Nav = styled.nav`
   top: 0;
   left: 0;
   bottom: 0;
-  transform: translateY(${({ navOpen }) => (navOpen ? 0 : '-100%')});
+  right: 0;
+  transform: translateX(${({ navOpen }) => (navOpen ? 0 : "100%")});
   background: ${({ theme }) => theme.background};
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
   font-family: var(--title-font);
   z-index: 1000;
 
@@ -53,36 +55,33 @@ export const Nav = styled.nav`
   }
 `;
 
-export const NavList = styled.ul`
+export const NavList = styled(motion.ul)`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
 
-  @media (min-width: 900px) {
-    flex-direction: row;
+  @media ${device.laptop} {
+    align-items: flex-start;
+    padding-left: 5em;
   }
 `;
 
-export const NavItem = styled.li`
+export const NavItem = styled(motion.li)`
   font-size: 2rem;
   margin: 1em 0;
 
-  @media (min-width: 900px) {
-    font-size: 1.125rem;
+  @media ${device.laptop} {
     font-weight: 600;
-    margin: 0 0 0 1.5em;
+    font-size: 3rem;
   }
 `;
+
 export const NavLink = styled.a`
   display: inline-block;
   color: ${({ theme }) => theme.text};
   border: 1px solid transparent;
-
-  &:hover {
-    border-bottom: 1px solid ${({ theme }) => theme.accent};
-  }
 `;
 
 export const NavToggle = styled.button`
@@ -101,7 +100,7 @@ export const Hamburger = styled.span`
 
   &::after,
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     width: 100%;
     height: 1px;

@@ -14,16 +14,17 @@ const Intro = () => {
           animate={{ opacity: 1, transition: { duration: 1.5 } }}
           style={{ y }}
         >
-          <S.ImageOverlay></S.ImageOverlay>
           <S.MyImage
             src={profileImage}
             priority={true}
             alt="ozan guner headshot"
+            fill
           />
+          <S.ImageOverlay></S.ImageOverlay>
         </S.ImageContainer>
 
         <OutlinedText style={{ fontStyle: "italic" }}>ozan</OutlinedText>
-        <OutlinedText>guner.</OutlinedText>
+        <OutlinedText fontSize={7}>guner.</OutlinedText>
         <S.Subtitle>creative software developer</S.Subtitle>
       </S.Container>
     </S.Section>

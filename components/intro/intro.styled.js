@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { BaseContainer } from "../../styles/global";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { device } from "../../styles/breakpoints";
 
 export const Section = styled.section``;
 
@@ -23,16 +24,23 @@ export const Subtitle = styled.h2`
 `;
 
 export const MyImage = styled(Image)`
-  width: 100%;
-  height: auto;
+  object-fit: contain;
+  object-position: bottom;
 `;
 
 export const ImageContainer = styled(motion.div)`
   position: relative;
   margin-bottom: -50px;
+  width: 90%;
+  min-width: 400px;
+  height: 40vh;
   mix-blend-mode: luminosity;
   opacity: 0;
   background-color: ${({ theme }) => theme.background};
+
+  @media ${device.tablet} {
+    height: 50vh;
+  }
 `;
 
 export const ImageOverlay = styled.div`

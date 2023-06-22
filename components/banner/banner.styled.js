@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import { device } from "../../styles/breakpoints";
 
 export const Banner = styled.div`
   position: relative;
@@ -32,4 +33,8 @@ export const BannerTitle = styled.div`
   flex: 0 0 auto;
   width: 30vw;
   opacity: 0.1;
+
+  @media ${device.desktop} {
+    font-size: 4vw;
+  }
 `;
