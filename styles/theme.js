@@ -10,16 +10,5 @@ export const theme = {
     accent: "hsl(41, 100%, 50%)",
     accentDark: "hsl(41, 100%, 30%)",
     error: "hsl(355, 75%, 42%)",
-    success: "hsl(148, 56%, 48%)",
-  },
-  light: {
-    background: "hsl(78, 8%, 70%)",
-    bgLight: "rgb(244, 67, 54)",
-    bgNavigation: "hsla(231, 9%, 0%, 0.3)",
-
-    text: "hsla(231, 9%, 0%, 0.8)",
-    textSecondary: "hsl(198, 41%, 8%)",
-    textTransparent: "hsla(0, 0%, 100%, 0.2)",
-    accent: "rgb(244, 67, 54)",
   },
 };

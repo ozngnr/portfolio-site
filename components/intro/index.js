@@ -5,12 +5,13 @@ import { useScroll, useTransform } from "framer-motion";
 
 const Intro = () => {
   const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 0.3], ["0px", "300px"]);
+  const y = useTransform(scrollYProgress, [0, 0.3], [0, 300]);
 
   return (
     <S.Section id="home">
       <S.Container>
         <S.ImageContainer
+          initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { duration: 1.5 } }}
           style={{ y }}
         >

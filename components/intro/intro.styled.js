@@ -26,6 +26,7 @@ export const Subtitle = styled.h2`
 export const MyImage = styled(Image)`
   object-fit: contain;
   object-position: bottom;
+  mix-blend-mode: luminosity;
 `;
 
 export const ImageContainer = styled(motion.div)`
@@ -34,8 +35,6 @@ export const ImageContainer = styled(motion.div)`
   width: 90%;
   min-width: 400px;
   height: 40vh;
-  mix-blend-mode: luminosity;
-  opacity: 0;
   background-color: ${({ theme }) => theme.background};
 
   @media ${device.tablet} {
