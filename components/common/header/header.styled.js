@@ -36,9 +36,10 @@ export const Header = styled(motion.header)`
 
 export const Nav = styled.nav`
   position: fixed;
-  display: grid;
-  place-items: center;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   top: 0;
   left: 0;
   bottom: 0;
@@ -52,6 +53,12 @@ export const Nav = styled.nav`
   @supports (backdrop-filter: blur(10px)) {
     background: ${({ theme }) => theme.bgNavigation};
     backdrop-filter: blur(10px);
+  }
+
+  @media ${device.laptop} {
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding-left: 3em;
   }
 `;
 
@@ -71,13 +78,17 @@ export const NavList = styled(motion.ul).attrs(() => ({
   },
 }))`
   text-align: center;
+
+  @media ${device.laptop} {
+    text-align: left;
+  }
 `;
 
 export const NavItem = styled(motion.li).attrs(() => ({
   variants: {
     initial: {
       opacity: 0,
-      x: -200,
+      x: 100,
     },
     animate: {
       opacity: 1,
@@ -89,12 +100,7 @@ export const NavItem = styled(motion.li).attrs(() => ({
     },
   },
 }))`
-  font-size: 2rem;
-  margin: 2em 0;
-
-  @media ${device.laptop} {
-    margin-bottom: 1.5em;
-  }
+  margin: 4em 0;
 `;
 
 export const NavLink = styled.a`

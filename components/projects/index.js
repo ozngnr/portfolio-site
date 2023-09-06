@@ -5,7 +5,6 @@ import OutlinedText from "../common/outlinedText";
 import useSectionInView from "../../hooks/useSectionInView";
 import useFadeIn from "../../hooks/useFadeIn";
 import Project from "./Project";
-import FeaturedProject from "./FeaturedProject";
 
 const Projects = ({ data }) => {
   const ref = useRef();
@@ -20,21 +19,13 @@ const Projects = ({ data }) => {
       <S.Container>
         <MobileSectionTitle>projects.</MobileSectionTitle>
         <S.Projects>
-          {data.map((project) =>
-            project.isFeatured ? (
-              <FeaturedProject
-                key={project.projectNumber}
-                project={project}
-                {...fadeIn}
-              />
-            ) : (
-              <Project
-                key={project.projectNumber}
-                project={project}
-                {...fadeIn}
-              />
-            )
-          )}
+          {data.map((project) => (
+            <Project
+              key={project.projectNumber}
+              project={project}
+              {...fadeIn}
+            />
+          ))}
         </S.Projects>
       </S.Container>
     </S.Section>

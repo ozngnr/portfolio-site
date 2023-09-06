@@ -1,10 +1,9 @@
-import { Container, ExternalLink, Text } from "./socials.styled";
+import { Container, ExternalLink } from "./socials.styled";
 import { FaLinkedin, FaGithub, FaCodepen } from "react-icons/fa";
 
 const Socials = () => {
   return (
     <Container>
-      <Text>socials</Text>
       <ExternalLink
         href="https://www.linkedin.com/in/ozanguner/"
         target="_blank"

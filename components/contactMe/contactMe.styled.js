@@ -120,6 +120,9 @@ export const Container = styled(BaseContainer)`
   @media ${device.laptop} {
     padding: 1.5rem 8rem;
   }
+  @media ${device.desktop} {
+    padding: 3rem 0;
+  }
 `;
 
 export const Section = styled.section`

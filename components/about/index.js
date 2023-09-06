@@ -36,12 +36,12 @@ const About = () => {
             <S.ExternalLink href="https://freecodecamp.org" target="_blank">
               freeCodeCamp
             </S.ExternalLink>
-            ,enrolled in the{" "}
+            , enrolled in the{" "}
             <S.ExternalLink
               href="https://scrimba.com/learn/frontend"
               target="_blank"
             >
-              Front-End Developer Career Path
+              <span>Front-End Developer Career Path </span>
             </S.ExternalLink>
             on Scrimba, and built real-life projects using JavaScript and React.
           </S.Text>{" "}

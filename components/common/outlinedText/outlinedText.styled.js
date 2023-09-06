@@ -10,10 +10,11 @@ export const Text = styled.div`
   margin-top: -1rem;
 
   @media ${device.tablet} {
-    --text-fs: ${({ fontSize }) => fontSize + 5 + "rem"};
+    --text-fs: ${({ fontSize }) => fontSize + 2 + "rem"};
   }
-  @media ${device.desktopL} {
-    --text-fs: ${({ fontSize }) => fontSize + 3 + "rem"};
+
+  @media ${device.laptop} {
+    --text-fs: ${({ fontSize }) => fontSize + 4 + "rem"};
   }
 
   ${({ vertical }) =>

@@ -30,12 +30,11 @@ export const Footer = styled.div`
   margin-top: auto;
 `;
 export const Description = styled.div`
-  font-weight: 300;
   margin: 1.5em 0;
   max-width: 600px;
 `;
 export const ProjectTitle = styled.h3`
-  font-weight: 400;
+  letter-spacing: 1px;
   font-size: 1.5rem;
   color: ${({ theme }) => theme.text};
   text-transform: uppercase;

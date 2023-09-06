@@ -12,6 +12,9 @@ const Header = () => {
 
   return (
     <S.Header>
+      {/* social links */}
+      <Socials />
+
       <Logo />
 
       <S.NavToggle
@@ -37,7 +40,6 @@ const Header = () => {
             </S.NavItem>
           ))}
         </S.NavList>
-        <Socials />
       </S.Nav>
     </S.Header>
   );

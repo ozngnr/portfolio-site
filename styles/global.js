@@ -1,36 +1,11 @@
 import styled, { createGlobalStyle } from "styled-components";
-import { Outfit } from "next/font/google";
-import localFont from "next/font/local";
+import { bodyFF, headingFF } from "../utils/constants";
 import { device } from "./breakpoints";
-
-const outfit = Outfit({
-  subsets: ["latin"],
-  style: "normal",
-  weight: ["100", "300", "400"],
-});
-
-const roxborough = localFont({
-  src: [
-    {
-      path: "../public/fonts/RoxboroughCF-Regular.woff2",
-      weight: "400",
-    },
-    {
-      path: "../public/fonts/RoxboroughCF-Heavy.woff2",
-      weight: "900",
-    },
-    {
-      path: "../public/fonts/RoxboroughCF-HeavyItalic.woff2",
-      weight: "900",
-      style: "italic",
-    },
-  ],
-});
 
 export const GlobalStyles = createGlobalStyle`
   :root {
-    --title-font: ${roxborough.style.fontFamily};
-    --body-font: ${outfit.style.fontFamily}
+    --title-font: ${headingFF.style.fontFamily};
+    --body-font: ${bodyFF.style.fontFamily}
   }
 
   * {
@@ -45,15 +20,11 @@ export const GlobalStyles = createGlobalStyle`
   html,
   body {
     text-rendering: optimizeSpeed;
-    font-family: var(--body-font), sans-serif;
     background-color: ${({ theme }) => theme.background};
     color: ${({ theme }) => theme.text};
     font-size: 16px;
+    font-family: var(--body-font), sans-serif;
     overflow-x: hidden;
-    
-    @media ${device.desktop} {
-      font-size: 18px;
-    }
   }
   section {
     position: relative;
@@ -66,7 +37,7 @@ export const GlobalStyles = createGlobalStyle`
 
   p {
     line-height: 1.4;
-    font-family: var(--body-font);
+    font-family: var(--body-font); 
   }
   a {
     text-decoration: none;
@@ -92,5 +63,8 @@ export const BaseContainer = styled.div`
 
   @media ${device.laptop} {
     padding: 3rem 7.5rem;
+  }
+  @media ${device.desktop} {
+    padding: 3rem 0;
   }
 `;

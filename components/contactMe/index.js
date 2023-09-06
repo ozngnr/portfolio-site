@@ -56,70 +56,67 @@ const ContactMe = () => {
           validationSchema={contactSchema}
         >
           {({ errors, touched, isValid }) => (
-            console.log(isValid),
-            (
-              <S.Form>
-                <S.FieldGroup>
-                  <S.Row>
-                    <S.InputWrapper>
-                      <S.Field
-                        name="fullName"
-                        placeholder="name"
-                        error={touched.fullName && errors.fullName}
-                      />
-                      <ErrorMessage name="fullName">
-                        {(error) => (
-                          <S.StyledErrorMessage>{error}</S.StyledErrorMessage>
-                        )}
-                      </ErrorMessage>
-                    </S.InputWrapper>
-                    <S.InputWrapper>
-                      <S.Field
-                        name="email"
-                        placeholder="email"
-                        error={touched.email && errors.email}
-                      />
-                      <ErrorMessage name="email">
-                        {(error) => (
-                          <S.StyledErrorMessage>{error}</S.StyledErrorMessage>
-                        )}
-                      </ErrorMessage>
-                    </S.InputWrapper>
-                    <S.InputWrapper>
-                      <S.Field
-                        name="subject"
-                        placeholder="subject"
-                        error={touched.subject && errors.subject}
-                      />
-                      <ErrorMessage name="subject">
-                        {(error) => (
-                          <S.StyledErrorMessage>{error}</S.StyledErrorMessage>
-                        )}
-                      </ErrorMessage>
-                    </S.InputWrapper>
-                  </S.Row>
+            <S.Form>
+              <S.FieldGroup>
+                <S.Row>
                   <S.InputWrapper>
                     <S.Field
-                      style={{ resize: "none", display: "block" }}
-                      component="textarea"
-                      name="message"
-                      placeholder="message"
-                      error={touched.message && errors.message}
-                      rows={8}
-                    ></S.Field>
-                    <ErrorMessage name="message">
+                      name="fullName"
+                      placeholder="name"
+                      error={touched.fullName && errors.fullName}
+                    />
+                    <ErrorMessage name="fullName">
                       {(error) => (
                         <S.StyledErrorMessage>{error}</S.StyledErrorMessage>
                       )}
                     </ErrorMessage>
                   </S.InputWrapper>
-                </S.FieldGroup>
+                  <S.InputWrapper>
+                    <S.Field
+                      name="email"
+                      placeholder="email"
+                      error={touched.email && errors.email}
+                    />
+                    <ErrorMessage name="email">
+                      {(error) => (
+                        <S.StyledErrorMessage>{error}</S.StyledErrorMessage>
+                      )}
+                    </ErrorMessage>
+                  </S.InputWrapper>
+                  <S.InputWrapper>
+                    <S.Field
+                      name="subject"
+                      placeholder="subject"
+                      error={touched.subject && errors.subject}
+                    />
+                    <ErrorMessage name="subject">
+                      {(error) => (
+                        <S.StyledErrorMessage>{error}</S.StyledErrorMessage>
+                      )}
+                    </ErrorMessage>
+                  </S.InputWrapper>
+                </S.Row>
+                <S.InputWrapper>
+                  <S.Field
+                    style={{ resize: "none", display: "block" }}
+                    component="textarea"
+                    name="message"
+                    placeholder="message"
+                    error={touched.message && errors.message}
+                    rows={8}
+                  ></S.Field>
+                  <ErrorMessage name="message">
+                    {(error) => (
+                      <S.StyledErrorMessage>{error}</S.StyledErrorMessage>
+                    )}
+                  </ErrorMessage>
+                </S.InputWrapper>
+              </S.FieldGroup>
 
-                <S.Button type="submit" disabled={!isValid}>
-                  <S.PaperPlane style={{ transform: "rotate(-30deg" }} />
-                </S.Button>
-              </S.Form>
-            )
+              <S.Button type="submit" disabled={!isValid}>
+                <S.PaperPlane style={{ transform: "rotate(-30deg" }} />
+              </S.Button>
+            </S.Form>
           )}
         </Formik>
         {showMessage && (
