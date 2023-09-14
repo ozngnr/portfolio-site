@@ -2,7 +2,7 @@
 projectNumber: 1
 isFeatured: true
 title: "Vidly"
-stack: ["React"]
+stack: ["React", "mongoDb", "express"]
 slug: "vidly-movie-db"
 code: "https://github.com/ozngnr/vidly-movie-db"
 demo: "https://moonlit-fox-20dfb0.netlify.app/"

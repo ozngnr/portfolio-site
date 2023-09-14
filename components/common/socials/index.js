@@ -1,5 +1,5 @@
 import { Container, ExternalLink } from "./socials.styled";
-import { FaLinkedin, FaGithub, FaCodepen } from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 const Socials = () => {
   return (
@@ -9,7 +9,7 @@ const Socials = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <FaLinkedin />
+        <FaLinkedin fontSize={35} />
       </ExternalLink>
 
       <ExternalLink
@@ -17,16 +17,16 @@ const Socials = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <FaGithub />
+        <FaGithub fontSize={35} />
       </ExternalLink>
 
-      <ExternalLink
+      {/* <ExternalLink
         href="https://www.codepen.io/ozngnr"
         target="_blank"
         rel="noopener noreferrer"
       >
         <FaCodepen />
-      </ExternalLink>
+      </ExternalLink> */}
     </Container>
   );
 };

@@ -1,11 +1,11 @@
 ---
 projectNumber: 3
-title: 'Weather App'
-stack: ['HTML', 'Sass', 'React']
-slug: 'weather-app'
-code: 'https://github.com/ozngnr/weather-app-2'
-demo: 'https://ozngnr-weather-app.netlify.app'
+title: "Weather App"
+stack: ["React", "Sass"]
+slug: "weather-app"
+code: "https://github.com/ozngnr/weather-app-2"
+demo: "https://ozngnr-weather-app.netlify.app"
 isFeatured: false
 ---
 
-A multi-page restaurant website that I designed and developed for The Nook London. The site contains a hero image on the home page that aims to give the user a glimpse of their Turkish inspired contemporary food. There is also a booking widget where the users can make table enquiries.
+Discover my user-friendly React weather app! It harnesses the power of Google API for effortless city location retrieval and OpenWeather API for precise 5-day forecasts. Stay informed with real-time weather updates for your current location and plan ahead by simply searching for any city. Seamlessly designed, it's your trustworthy weather companion for all your adventures.

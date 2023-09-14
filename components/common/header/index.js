@@ -4,7 +4,6 @@ import Link from "next/link";
 import Logo from "../logo";
 import OutlinedText from "../outlinedText";
 import Socials from "../socials";
-
 const navItems = ["home", "about", "projects", "contact"];
 
 const Header = () => {
@@ -12,9 +11,6 @@ const Header = () => {
 
   return (
     <S.Header>
-      {/* social links */}
-      <Socials />
-
       <Logo />
 
       <S.NavToggle
@@ -40,6 +36,7 @@ const Header = () => {
             </S.NavItem>
           ))}
         </S.NavList>
+        <Socials />
       </S.Nav>
     </S.Header>
   );

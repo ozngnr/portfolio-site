@@ -1,10 +1,10 @@
 ---
 projectNumber: 5
-title: 'Country Quiz'
-stack: ['HTML', 'CSS', 'JavaScript', 'React']
-slug: 'country-quiz'
-code: 'https://github.com/ozngnr/country-quiz'
-demo: 'https://ozngnr-country-quiz.netlify.app'
+title: "Country Quiz"
+stack: ["React"]
+slug: "country-quiz"
+code: "https://github.com/ozngnr/country-quiz"
+demo: "https://ozngnr-country-quiz.netlify.app"
 isFeatured: false
 ---
 

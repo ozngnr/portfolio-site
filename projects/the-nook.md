@@ -1,10 +1,10 @@
 ---
 projectNumber: 4
-title: 'The Nook London'
-stack: ['HTML', 'CSS', 'Gatsby']
-slug: 'the-nook-london'
-code: 'https://github.com/ozngnr/the-nook-website'
-demo: 'https://thenooklondon.netlify.app'
+title: "The Nook London"
+stack: ["React", "Gatsby"]
+slug: "the-nook-london"
+code: "https://github.com/ozngnr/the-nook-website"
+demo: "https://thenooklondon.netlify.app"
 isFeatured: false
 ---
 

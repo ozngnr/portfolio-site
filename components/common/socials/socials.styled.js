@@ -8,7 +8,6 @@ export const ExternalLink = styled.a`
 
 export const Container = styled.div`
   display: flex;
-
   svg {
     margin: 0 0.5em;
     cursor: pointer;

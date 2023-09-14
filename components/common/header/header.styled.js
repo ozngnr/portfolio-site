@@ -56,9 +56,10 @@ export const Nav = styled.nav`
   }
 
   @media ${device.laptop} {
-    align-items: flex-start;
-    justify-content: flex-end;
-    padding-left: 3em;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 3em;
   }
 `;
 
@@ -101,6 +102,14 @@ export const NavItem = styled(motion.li).attrs(() => ({
   },
 }))`
   margin: 4em 0;
+
+  &:last-of-type {
+    margin-bottom: 6rem;
+
+    @media ${device.laptop} {
+      margin-bottom: 0;
+    }
+  }
 `;
 
 export const NavLink = styled.a`

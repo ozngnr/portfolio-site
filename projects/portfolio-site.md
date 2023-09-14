@@ -1,10 +1,10 @@
 ---
 projectNumber: 2
-title: 'Portfolio Site'
-stack: ['React', 'Styled', 'Next']
-slug: 'portfolio-site'
-code: 'https://github.com/ozngnr/portfolio-site'
+title: "Portfolio Site"
+stack: ["react", "Next", "styled"]
+slug: "portfolio-site"
+code: "https://github.com/ozngnr/portfolio-site"
 isFeatured: false
 ---
 
-The responsive portfolio site you are currently visiting. It's a React app that I build with Next.js and Styled Components. Whilst building this website I had the chance to explore some of very useful features of Next.js and learned more about the framework. I also used some css animations in order to improve user experience.
+The responsive portfolio site you are currently visiting. This site is a React app built with Next.js and enhanced with the elegance of Styled Components. During its creation, I delved into the powerful features of Next.js, expanding my knowledge of the framework. I also incorporated CSS animations to elevate the user experience, making this website a dynamic showcase of my skills and creativity.
