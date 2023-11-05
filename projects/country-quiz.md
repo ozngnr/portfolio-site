@@ -8,4 +8,4 @@ demo: "https://ozngnr-country-quiz.netlify.app"
 isFeatured: false
 ---
 
-This was a fun little project that I built in React. This quiz app presents users with 10 engaging questions that test their familiarity with the world's capitals and flags. Challenge yourself and discover how well you know the globe with this user-friendly and educational app.
+This was a fun little project that I built in React. It's a quiz app that tests user's knowledge of country capitals and flags. The app makes an API call and generates a new question as the user progress through the quiz.
