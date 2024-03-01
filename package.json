@@ -23,6 +23,7 @@
     "remark": "^14.0.2",
     "remark-html": "^15.0.1",
     "styled-components": "^5.3.3",
+    "x-widget-react": "^1.0.1",
     "yup": "^1.2.0"
   },
   "devDependencies": {

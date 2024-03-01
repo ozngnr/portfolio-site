@@ -1,14 +1,20 @@
-import About from "../components/about";
-import ContactMe from "../components/contactMe";
-import Intro from "../components/intro";
-import Layout from "../components/layout";
-import Projects from "../components/projects";
-import { getProjectsData } from "../lib/projects";
-import Head from "next/head";
+import About from '../components/about'
+import ContactMe from '../components/contactMe'
+import Intro from '../components/intro'
+import Layout from '../components/layout'
+import Projects from '../components/projects'
+import { getProjectsData } from '../lib/projects'
+import XWidget from 'x-widget-react'
+import Head from 'next/head'
+import Script from 'next/script'
 
 export default function Home({ allProjectsData }) {
   return (
     <>
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-ECQVZ0CX9Z"
+      ></Script>
       <Head>
         <title>Ozan Guner | Software Developer</title>
         <meta
@@ -17,10 +23,6 @@ export default function Home({ allProjectsData }) {
         />
         <link rel="icon" href="/favicon.ico" />
         {/* <!-- Google tag (gtag.js) --> */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-ECQVZ0CX9Z"
-        ></script>
         <script>
           {`window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments)}
@@ -41,17 +43,19 @@ export default function Home({ allProjectsData }) {
         <About />
         <Projects data={allProjectsData} />
         <ContactMe />
+        {/* XWidget */}
+        <XWidget workspaceId={'e359aa1b-364b-493d-ae28-7739776f4e72'} />
       </Layout>
     </>
-  );
+  )
 }
 
 export async function getStaticProps() {
-  const allProjectsData = getProjectsData();
+  const allProjectsData = getProjectsData()
 
   return {
     props: {
       allProjectsData,
     },
-  };
+  }
 }

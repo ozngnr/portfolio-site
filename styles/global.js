@@ -1,11 +1,11 @@
-import styled, { createGlobalStyle } from "styled-components";
-import { bodyFF, headingFF } from "../utils/constants";
-import { device } from "./breakpoints";
+import styled, { createGlobalStyle } from 'styled-components'
+import { bodyFF, headingFF } from '../utils/constants'
+import { device } from './breakpoints'
 
 export const GlobalStyles = createGlobalStyle`
   :root {
     --title-font: ${headingFF.style.fontFamily};
-    --body-font: ${bodyFF.style.fontFamily}
+    --body-font: ${bodyFF.style.fontFamily};
   }
 
   * {
@@ -53,7 +53,7 @@ export const GlobalStyles = createGlobalStyle`
     color: inherit;
     font-family: inherit;
   }
-`;
+`
 
 export const BaseContainer = styled.div`
   width: 100%;
@@ -67,4 +67,4 @@ export const BaseContainer = styled.div`
   @media ${device.desktop} {
     padding: 3rem 0;
   }
-`;
+`
