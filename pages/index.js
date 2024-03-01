@@ -44,7 +44,7 @@ export default function Home({ allProjectsData }) {
         <Projects data={allProjectsData} />
         <ContactMe />
         {/* XWidget */}
-        <XWidget workspaceId={'e359aa1b-364b-493d-ae28-7739776f4e72'} />
+        <XWidget workspaceId={'ed2fcf6c-cd31-42e1-98ec-181c7af61278'} />
       </Layout>
     </>
   )
