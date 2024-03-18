@@ -1,4 +1,4 @@
-const loadCss = () => {
+const loadStylesheet = () => {
   let head = document.getElementsByTagName('HEAD')[0]
   let link = document.createElement('link')
   link.rel = 'stylesheet'
@@ -6,24 +6,28 @@ const loadCss = () => {
   link.href = 'https://widget.weezboo.com/x/xwidget.css'
   head.appendChild(link)
 }
-loadCss()
-function initSupabase(callback) {
-  var script = document.createElement('script')
-  script.src = 'https://unpkg.com/@supabase/supabase-js@2'
-  script.onload = function () {
-    callback()
-  }
-  document.head.appendChild(script)
+loadStylesheet()
+
+var supaClient
+var script = document.createElement('script')
+script.src = 'https://unpkg.com/@supabase/supabase-js@2'
+script.onload = function () {
+  var SUPABASE_URL = 'https://npwoitbpqbsundoyaplm.supabase.co'
+  var SUPABASE_ANON_KEY =
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5wd29pdGJwcWJzdW5kb3lhcGxtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDcyMjUyNTEsImV4cCI6MjAyMjgwMTI1MX0.tP391KWyjd6uRTqWY8ow8AQCdzSBahOZ3YVOSD1hrCY'
+  supaClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 }
-let supaClient
+document.head.appendChild(script)
+
+// function initSupabase(callback) {}
 
 const xWidget = ({ workspace_id }) => {
-  initSupabase(function () {
-    const SUPABASE_URL = 'https://npwoitbpqbsundoyaplm.supabase.co'
-    const SUPABASE_ANON_KEY =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5wd29pdGJwcWJzdW5kb3lhcGxtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDcyMjUyNTEsImV4cCI6MjAyMjgwMTI1MX0.tP391KWyjd6uRTqWY8ow8AQCdzSBahOZ3YVOSD1hrCY'
-    supaClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-  })
+  // initSupabase(function () {
+  //   const SUPABASE_URL = 'https://npwoitbpqbsundoyaplm.supabase.co'
+  //   const SUPABASE_ANON_KEY =
+  //     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5wd29pdGJwcWJzdW5kb3lhcGxtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDcyMjUyNTEsImV4cCI6MjAyMjgwMTI1MX0.tP391KWyjd6uRTqWY8ow8AQCdzSBahOZ3YVOSD1hrCY'
+  //   supaClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+  // })
   // Function to get data
   const getDataByIdAndTable = (id, table) => {
     return supaClient.from(table).select().eq('id', id)
