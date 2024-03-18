@@ -7,18 +7,23 @@ const loadCss = () => {
   head.appendChild(link)
 }
 loadCss()
-function initSupabase() {
+function initSupabase(callback) {
   var script = document.createElement('script')
   script.src = 'https://unpkg.com/@supabase/supabase-js@2'
+  script.onload = function () {
+    callback()
+  }
   document.head.appendChild(script)
 }
-initSupabase()
-
-const xWidget = ({ workspace_id }) => {
+initSupabase(function () {
+  // Your code that depends on Supabase goes here. For example:
   const SUPABASE_URL = 'https://npwoitbpqbsundoyaplm.supabase.co'
   const SUPABASE_ANON_KEY =
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5wd29pdGJwcWJzdW5kb3lhcGxtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDcyMjUyNTEsImV4cCI6MjAyMjgwMTI1MX0.tP391KWyjd6uRTqWY8ow8AQCdzSBahOZ3YVOSD1hrCY'
   const supaClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+})
+
+const xWidget = ({ workspace_id }) => {
   // Function to get data
   const getDataByIdAndTable = (id, table) => {
     return supaClient.from(table).select().eq('id', id)
