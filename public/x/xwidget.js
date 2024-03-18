@@ -8,83 +8,69 @@ const loadStylesheet = () => {
 }
 loadStylesheet()
 
-function initSupabase() {
-  var script = document.createElement('script')
-  script.src = 'https://unpkg.com/@supabase/supabase-js@2'
-  script.onload = function () {
-    // Initialize Supabase client here
-    const SUPABASE_URL = 'https://npwoitbpqbsundoyaplm.supabase.co'
-    const SUPABASE_ANON_KEY = 'your-anon-key-here'
-    window.supaClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-    // You may want to call a function here that depends on supaClient being initialized
-  }
-  document.head.appendChild(script)
-}
-
-initSupabase()
-
 const xWidget = ({ workspace_id }) => {
-  // Function to get data
-  const getDataByIdAndTable = (id, table) => {
-    return supaClient.from(table).select().eq('id', id)
-  }
-  // Function to fetch initial data from Supabase
-  const fetchInitialData = () => {
-    getDataByIdAndTable(workspace_id, 'workspaces')
-      .then(async ({ data: workspace, error }) => {
-        if (error) {
-          console.error('Error fetching initial data:', error.message)
-        } else {
-          const { activeWidgetId } = workspace[0]
-          if (activeWidgetId) {
-            const { data: activeWidget, error } = await getDataByIdAndTable(
-              activeWidgetId,
-              'widgets'
-            )
+  function initSupabase() {
+    var script = document.createElement('script')
+    script.src = 'https://unpkg.com/@supabase/supabase-js@2'
+    script.onload = function () {
+      // Initialize Supabase client here
+      const SUPABASE_URL = 'https://npwoitbpqbsundoyaplm.supabase.co'
+      const SUPABASE_ANON_KEY = 'your-anon-key-here'
+      const supaClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+      // You may want to call a function here that depends on supaClient being initialized
+      // Function to get data
+      const getDataByIdAndTable = (id, table) => {
+        return supaClient.from(table).select().eq('id', id)
+      }
+      // Function to fetch initial data from Supabase
+      const fetchInitialData = () => {
+        getDataByIdAndTable(workspace_id, 'workspaces')
+          .then(async ({ data: workspace, error }) => {
             if (error) {
-              console.log(error)
+              console.error('Error fetching initial data:', error.message)
             } else {
-              renderWidget(activeWidget[0])
+              const { activeWidgetId } = workspace[0]
+              if (activeWidgetId) {
+                const { data: activeWidget, error } = await getDataByIdAndTable(
+                  activeWidgetId,
+                  'widgets'
+                )
+                if (error) {
+                  console.log(error)
+                } else {
+                  renderWidget(activeWidget[0])
+                }
+              }
             }
-          }
-        }
-      })
-      .catch((err) => console.log(err))
-  }
+          })
+          .catch((err) => console.log(err))
+      }
 
-  fetchInitialData()
+      fetchInitialData()
 
-  const renderIcon = (icon) => {
-    const isSvg = icon.indexOf('svg') !== -1
+      const renderIcon = (icon) => {
+        const isSvg = icon.indexOf('svg') !== -1
 
-    return isSvg
-      ? `<img
+        return isSvg
+          ? `<img
         src=data:image/svg+xml;utf8,${encodeURIComponent(icon)}
         alt='widget icon'
         width="20px"
         height="20px"
       />`
-      : `<div>${icon}</div>`
-  }
+          : `<div>${icon}</div>`
+      }
 
-  const formatUrl = (url) => {
-    if (/^https?:\/\//.test(url) || /^\/\//.test(url)) {
-      return url // URL is fine as is
-    } else {
-      return `https://${url}` // Prepend https:// to the URL
-    }
-  }
-
-  const createWidget = ({
-    id,
-    widgetTitle,
-    widgetBody,
-    widgetPosition,
-    emoji,
-    ctaUrl,
-    ctaText,
-  }) =>
-    `
+      const createWidget = ({
+        id,
+        widgetTitle,
+        widgetBody,
+        widgetPosition,
+        emoji,
+        ctaUrl,
+        ctaText,
+      }) =>
+        `
     <div class="x-widget" id=${id} position=${widgetPosition}>
       <div class="x-widget-content">
         <div class="x-widget-header">  
@@ -104,7 +90,7 @@ const xWidget = ({ workspace_id }) => {
           <div class="x-widget-body_text">${widgetBody}</div>
           ${
             ctaUrl &&
-            `<a href=${formatUrl(ctaUrl)} target="_blank">
+            `<a href=${ctaUrl} target="_blank">
               <button class="x-widget-btn btn-contained">${ctaText}</button>
             </a>`
           }
@@ -112,56 +98,59 @@ const xWidget = ({ workspace_id }) => {
     </div>
   `
 
-  // Function to render the widget
-  const renderWidget = (widget) => {
-    // Current widget on display
-    const xWidget = document.querySelector('.x-widget')
-    if (xWidget) {
-      xWidget.remove()
-    }
-    const newWidget = createWidget(widget)
-    document.body.insertAdjacentHTML('beforeend', newWidget)
-    const closeButton = document.querySelector('.x-widget-btn.close-btn')
-    closeButton.addEventListener('click', () =>
-      document.getElementById(widget.id).classList.remove('show')
-    )
-    setTimeout(function () {
-      document.getElementById(widget.id).classList.add('show')
-    }, 500)
-  }
-
-  const closeWidget = () => {}
-  // Function to handle real-time updates
-  const handleRealtimeUpdates = async (payload) => {
-    console.log(payload)
-    if (payload.eventType === 'UPDATE') {
-      const { activeWidgetId } = payload.new
-
-      if (activeWidgetId) {
-        const { data: activeWidget, error } = await getDataByIdAndTable(
-          payload.new.activeWidgetId,
-          'widgets'
+      // Function to render the widget
+      const renderWidget = (widget) => {
+        // Current widget on display
+        const xWidget = document.querySelector('.x-widget')
+        if (xWidget) {
+          xWidget.remove()
+        }
+        const newWidget = createWidget(widget)
+        document.body.insertAdjacentHTML('beforeend', newWidget)
+        const closeButton = document.querySelector('.x-widget-btn.close-btn')
+        closeButton.addEventListener('click', () =>
+          document.getElementById(widget.id).classList.remove('show')
         )
-        if (error) {
-          console.error('Error updating active widget', error.message)
-        } else {
-          renderWidget(activeWidget[0])
+        setTimeout(function () {
+          document.getElementById(widget.id).classList.add('show')
+        }, 500)
+      }
+
+      // Function to handle real-time updates
+      const handleRealtimeUpdates = async (payload) => {
+        console.log(payload)
+        if (payload.eventType === 'UPDATE') {
+          const { activeWidgetId } = payload.new
+
+          if (activeWidgetId) {
+            const { data: activeWidget, error } = await getDataByIdAndTable(
+              payload.new.activeWidgetId,
+              'widgets'
+            )
+            if (error) {
+              console.error('Error updating active widget', error.message)
+            } else {
+              renderWidget(activeWidget[0])
+            }
+          }
         }
       }
-    }
-  }
 
-  supaClient
-    .channel('workspaces')
-    .on(
-      'postgres_changes',
-      {
-        event: 'update',
-        schema: 'public',
-        table: 'workspaces',
-        filter: `id=eq.${workspace_id}`,
-      },
-      handleRealtimeUpdates
-    )
-    .subscribe()
+      supaClient
+        .channel('workspaces')
+        .on(
+          'postgres_changes',
+          {
+            event: 'update',
+            schema: 'public',
+            table: 'workspaces',
+            filter: `id=eq.${workspace_id}`,
+          },
+          handleRealtimeUpdates
+        )
+        .subscribe()
+    }
+    document.head.appendChild(script)
+  }
+  initSupabase()
 }
