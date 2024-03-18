@@ -4,7 +4,7 @@ import Intro from '../components/intro'
 import Layout from '../components/layout'
 import Projects from '../components/projects'
 import { getProjectsData } from '../lib/projects'
-import XWidget from 'x-widget-react'
+// import { XWidget } from 'x-widget-react'
 import Head from 'next/head'
 import Script from 'next/script'
 
@@ -22,6 +22,7 @@ export default function Home({ allProjectsData }) {
           content="Highly passionate and creative Front End Developer, based in London. Specialising in React js"
         />
         <link rel="icon" href="/favicon.ico" />
+
         {/* <!-- Google tag (gtag.js) --> */}
         <script>
           {`window.dataLayer = window.dataLayer || [];
@@ -44,7 +45,7 @@ export default function Home({ allProjectsData }) {
         <Projects data={allProjectsData} />
         <ContactMe />
         {/* XWidget */}
-        <XWidget workspaceId={'ed2fcf6c-cd31-42e1-98ec-181c7af61278'} />
+        {/* <XWidget workspaceId={'e359aa1b-364b-493d-ae28-7739776f4e72'} /> */}
       </Layout>
     </>
   )
