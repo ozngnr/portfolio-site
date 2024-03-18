@@ -8,26 +8,22 @@ const loadStylesheet = () => {
 }
 loadStylesheet()
 
-var supaClient
-var script = document.createElement('script')
-script.src = 'https://unpkg.com/@supabase/supabase-js@2'
-script.onload = function () {
-  var SUPABASE_URL = 'https://npwoitbpqbsundoyaplm.supabase.co'
-  var SUPABASE_ANON_KEY =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5wd29pdGJwcWJzdW5kb3lhcGxtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDcyMjUyNTEsImV4cCI6MjAyMjgwMTI1MX0.tP391KWyjd6uRTqWY8ow8AQCdzSBahOZ3YVOSD1hrCY'
-  supaClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+function initSupabase() {
+  var script = document.createElement('script')
+  script.src = 'https://unpkg.com/@supabase/supabase-js@2'
+  script.onload = function () {
+    // Initialize Supabase client here
+    const SUPABASE_URL = 'https://npwoitbpqbsundoyaplm.supabase.co'
+    const SUPABASE_ANON_KEY = 'your-anon-key-here'
+    window.supaClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+    // You may want to call a function here that depends on supaClient being initialized
+  }
+  document.head.appendChild(script)
 }
-document.head.appendChild(script)
 
-// function initSupabase(callback) {}
+initSupabase()
 
 const xWidget = ({ workspace_id }) => {
-  // initSupabase(function () {
-  //   const SUPABASE_URL = 'https://npwoitbpqbsundoyaplm.supabase.co'
-  //   const SUPABASE_ANON_KEY =
-  //     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5wd29pdGJwcWJzdW5kb3lhcGxtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDcyMjUyNTEsImV4cCI6MjAyMjgwMTI1MX0.tP391KWyjd6uRTqWY8ow8AQCdzSBahOZ3YVOSD1hrCY'
-  //   supaClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-  // })
   // Function to get data
   const getDataByIdAndTable = (id, table) => {
     return supaClient.from(table).select().eq('id', id)
