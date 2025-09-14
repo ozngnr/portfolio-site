@@ -45,7 +45,7 @@ export default class MyDocument extends Document {
                   function initToastHub() {
                     if (typeof window !== 'undefined' && window.ToastHub) {
                       try {
-                        new window.ToastHub("cmfie7j11000b1cswsutjso0t", {
+                        new window.ToastHub("cmfjl5pa000037o9no252hg4t", {
                           apiUrl: "http://localhost:3000",
                           enableRealtime: true,
                           pusherKey: "cddab0774abf396e25a1",
